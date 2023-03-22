@@ -40,15 +40,14 @@ def email(*val):
             rec_email = val[0]
             password = '9555812686'
             
-            
             msg = MIMEMultipart()                   
             msg['From'] = sender_email
             msg['To'] = rec_email
             msg['Subject'] = "Network file"
             body ="test for network file"
             msg.attach(MIMEText(body, 'plain'))
-            filename = r"\\192.168.0.50\hr\1-JAN-Monthly Training Schedule 2019.xls"
-            attachment = open(filename, "rb")
+            filename = val[1]
+            attachment =  open("//192.168.0.50/hr/" + filename , "rb")
             p = MIMEBase('application', 'octet-stream')
             p.set_payload((attachment).read())
             encoders.encode_base64(p)
@@ -75,23 +74,24 @@ group_type_data = cur.fetchall()
 
 for row in group_type_data :
 
-    cur = cursor.execute('''select email_ids, start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
+    cur = cursor.execute('''select email_ids, file_name, start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
     CASE
         WHEN (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) >= start_time and (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) < end_time  THEN 'Y'
         ELSE 'N'
     END as result
-    from hr_mail where group_type = ? ''', row)
+    from hr_mail where group_type =  ? ''', row)
     hr_data = cur.fetchall()
     
     email_ids = hr_data[0][0]
-    start_time = hr_data[0][1]
-    end_time = hr_data[0][2]
+    file_name = hr_data[0][1]
+    start_time = hr_data[0][2]
+    end_time = hr_data[0][3]
     
-    day_fetch = hr_data[0][3]
+    day_fetch = hr_data[0][4]
     day = list(day_fetch.split(","))
     
-    cur_time = hr_data[0][4]
-    result = hr_data[0][5]
+    cur_time = hr_data[0][5]
+    result = hr_data[0][6]
     
     if result == 'Y' :
         
@@ -113,15 +113,15 @@ for row in group_type_data :
 
         if day == 'Everyday' :
             
-            email(email_ids)
+            email(email_ids,file_name)
             
         elif any(cur_day in s for s in day) :
            
-            email(email_ids)
+            email(email_ids,file_name)
         
         else :
             
-            email(email_ids)
+            email(email_ids,file_name)
         
     else  :
         logger.info('Current time does not Match')
