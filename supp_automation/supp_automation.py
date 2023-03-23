@@ -252,16 +252,11 @@ for i in dictnry: # loop on key of dictionary( customers )
     for j in range(len(key)): # loop on the length of  particular key values ( GRN/Price/....)
         logger.info('File is :: {a}'.format(a=key[j]))
         path_key = f'{i}{"."}{key[j]}{".Filename"}'
-        #pathtxt_key = f'{i}{"."}{"Price"}{".Filename.txt"}'
-        #dtwtxt_key = f'{i}{"."}{"Dtw"}{".Filename.txt"}'
         cardcode_key = f'{i}{"."}{"Cardcode"}'
-        
-        
+               
         cardcode = parser.get(arg,cardcode_key)
         
-
         path = os.path.join(basepath,i,key[j],parser.get(arg,path_key)) # original file path       
-        #path_txt = os.path.join(basepath,i,key[j],parser.get(arg,pathtxt_key))
 
         if key[j] == 'Grn' :
             
@@ -391,7 +386,20 @@ for i in dictnry: # loop on key of dictionary( customers )
                     cur = cursor.execute("select top 1 cast(supp_date as date) from supp_prc_txns where status = 'A' order by supp_date desc")
                     prctbl_date = cur.fetchone()
                     
-                    if supptbl_date[0] == prctbl_date[0]:
+                    none_flag = 'I'
+                    equal_flag = 'I'
+                    
+                    if supptbl_date is None and prctbl_date is None :
+                        none_flag = 'A'
+                    
+                    elif supptbl_date is None or prctbl_date is None :
+                        logger.info('Complete the process')
+                    
+                    else :
+                        if (supptbl_date[0] == prctbl_date[0]) :
+                            equal_flag = 'A'                   
+                                        
+                    if  none_flag == 'A' or  equal_flag == 'A' :
                     
                         for part in part_list:
                             
@@ -420,8 +428,6 @@ for i in dictnry: # loop on key of dictionary( customers )
                                 break
                                 
                             else :
-                                #new_prc_db  =   list(new_prc_cur[0])
-                                #new_prc_db1 = new_prc_db[0]
                                 new_prc_db =  new_prc_cur[0][0] 
                                 
                             #Check if for a part there are more than 1 invoice price present for date range if yes then
