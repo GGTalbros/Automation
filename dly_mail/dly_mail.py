@@ -24,17 +24,12 @@ cursor = conn.cursor()
 
 cur = cursor.execute('''select code from tal_dly_mail''')
 code_fetch = cur.fetchall()
-#print(code_fetch)
 
 for codes in code_fetch :
-    print('\n')
-    print('codes',codes)
     cur = cursor.execute('''select Qstring from OUQR,oalt where OUQR.IntrnalKey =oalt.QueryId and oalt.Active = 'Y' and code = ? ''' , codes)   
     Qsring_fetch = cur.fetchall()
     Qstring = Qsring_fetch[0][0]
-    #print(Qstring)
     
-
     emails = cursor.execute('''with test_cte (emailids) as (select ousr.E_Mail from oalt,ALT1,OUSR where oalt.Code=ALT1.Code 
                             and ALT1.UserSign= OUSR.USERID and ALT1.code = ? and E_mail is not null) SELECT Stuff(
                             (
@@ -45,37 +40,27 @@ for codes in code_fetch :
      
     all_code = emails.fetchone()
     r_mail = all_code.emailids
-    #print(r_mail)
     data = cursor.execute(Qstring)
     all_query = data.fetchall()
-    #print('all_query.rowcount',all_query.rowcount)
-    #print(all_query)
-    #print('Done')
-    
-    #print('data',data)
-    print('data.rowcount',data.rowcount)
+
     if data.rowcount == 0 :
-        #print('skipped')
         pass
         
     else :
         cur = cursor.execute('''select header from tal_dly_mail where code = ?''', codes)
         header_fetch = cur.fetchone()
         header = header_fetch[0]
-        #print(header)
         
-        file = open(r"C:\Users\abc\Supp_mail.csv", 'w', newline='') 
+        file = open(r"C:\Users\Administrator\Supp_mail.csv", 'w', newline='') 
         writer = csv.writer(file)
         
         if header is None :
             pass       
         else :
             pass
-            #print('Good',codes)
             header_list = list(header.split(","))
             
             writer.writerow(header_list)
-            #print(header_list)
 
         writer.writerows(all_query)
         file.close()
@@ -83,33 +68,25 @@ for codes in code_fetch :
         
         fromaddr = 'it@bnt-talbros.com'
         password = '9555812686'
-        toaddr = 'support@talbrosaxles.com'
-        #'arpitamohanty916@gmail.com'
-        
-        
+        toaddr = r_mail
+               
         msg = MIMEMultipart()
         
         msg['From'] = fromaddr
         msg['To'] = toaddr
-        #  msg['Cc'] = cc
         msg['Subject'] = "SAP Business One mail message, the subject is in the message body."
         
         cur = cursor.execute('''select name from tal_dly_mail where code = ? ''' , codes)
         name_fetch = cur.fetchone()
         name = name_fetch[0]
-        print(name)
-
 
         cur = cursor.execute('''select name from OUQR,oalt where OUQR.IntrnalKey =oalt.QueryId and oalt.Active = 'Y' and code = ? ''' , codes)
         body_fetch = cur.fetchone()
         body = body_fetch[0]
-        print(body)
-        
-        #body = name
         
         msg.attach(MIMEText(body, 'plain'))
         
-        filename = r"C:\Users\abc\Supp_mail.csv"
+        filename = r"C:\Users\Administrator\Supp_mail.csv"
         attachment = open(filename, "rb")
         
         p = MIMEBase('application', 'octet-stream')
@@ -135,7 +112,7 @@ for codes in code_fetch :
         
         server.quit()
     
-os.remove(r"C:\Users\abc\Supp_mail.csv")
+os.remove(r"C:\Users\Administrator\Supp_mail.csv")
     
  
 conn.close()
