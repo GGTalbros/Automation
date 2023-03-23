@@ -15,7 +15,7 @@ from dateutil import parser
 conn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                    "Server=192.168.0.60;"
                    "PORT=1433;"
-                   "Database=Suppl.;"
+                   "Database=Talbros_Live;"
                    "UID=sa;"
                    "PWD=tel@2017;")
 
@@ -24,7 +24,7 @@ cursor = conn.cursor()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-handler = RotatingFileHandler(filename=r'C:\Users\abc\Documents\logfile.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8')
+handler = RotatingFileHandler(filename=r'.\logfile.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8')
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -43,8 +43,8 @@ def email(*val):
             msg = MIMEMultipart()                   
             msg['From'] = sender_email
             msg['To'] = rec_email
-            msg['Subject'] = "Network file"
-            body ="test for network file"
+            msg['Subject'] = val[2]
+            body =val[3]
             msg.attach(MIMEText(body, 'plain'))
             filename = val[1]
             attachment =  open("//192.168.0.50/hr/" + filename , "rb")
@@ -69,29 +69,31 @@ def email(*val):
 
 cur_day = datetime.today().strftime('%A')
 
-cur = cursor.execute("select group_type from hr_mail")
+cur = cursor.execute("select group_type from tal_hr_mail")
 group_type_data = cur.fetchall()
 
 for row in group_type_data :
 
-    cur = cursor.execute('''select email_ids, file_name, start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
+    cur = cursor.execute('''select email_ids, file_name, Body, Subject, start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
     CASE
         WHEN (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) >= start_time and (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) < end_time  THEN 'Y'
         ELSE 'N'
     END as result
-    from hr_mail where group_type =  ? ''', row)
+    from tal_hr_mail where group_type = ? ''', row)
     hr_data = cur.fetchall()
     
     email_ids = hr_data[0][0]
     file_name = hr_data[0][1]
-    start_time = hr_data[0][2]
-    end_time = hr_data[0][3]
+    Body = hr_data[0][2]
+    Subject = hr_data[0][3]
+    start_time = hr_data[0][4]
+    end_time = hr_data[0][5]
     
-    day_fetch = hr_data[0][4]
+    day_fetch = hr_data[0][6]
     day = list(day_fetch.split(","))
     
-    cur_time = hr_data[0][5]
-    result = hr_data[0][6]
+    cur_time = hr_data[0][7]
+    result = hr_data[0][8]
     
     if result == 'Y' :
         
@@ -113,15 +115,15 @@ for row in group_type_data :
 
         if day == 'Everyday' :
             
-            email(email_ids,file_name)
+            email(email_ids,file_name,Subject,Body)
             
         elif any(cur_day in s for s in day) :
            
-            email(email_ids,file_name)
+            email(email_ids,file_name,Subject,Body)
         
         else :
             
-            email(email_ids,file_name)
+            email(email_ids,file_name,Subject,Body)
         
     else  :
         logger.info('Current time does not Match')
