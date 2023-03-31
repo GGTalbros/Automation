@@ -11,4 +11,4 @@ set venv_root_dir="%original_dir%\py_venv"
 
 cd %venv_root_dir%
 
-virtualenv dy_mail
+virtualenv dly_mail

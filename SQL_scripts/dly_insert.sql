@@ -1,23 +1,4 @@
 GO
-
-CREATE TABLE [dbo].[tal_dly_mail](
-	[Entry_ID] [int] IDENTITY(1,1) NOT NULL,
-	[Code] [int] NULL,
-	[Name] [varchar](50) NULL,
-	[Header] [varchar](200) NULL,
-	[Start_time] [time](7) NULL,
-	[End_time] [time](7) NULL,
-	[Day] [varchar](50) NULL,
-	[Status] [char](1) NULL
-) ON [PRIMARY]
-
-GO
-
-SET ANSI_PADDING OFF
-GO
-
-
-GO
 Insert into Tal_dly_mail values('2','Dispatch Details','Customer Name, Invoice No, Invoice Date, Talbros Part#, Customer Part#, Quantity, Transporter, Vehicle Number, GR\LR#','11:00','12:00','Everyday','A')
 GO
 Insert into Tal_dly_mail values('4','Dispatch Details','Customer Name, Invoice No, Invoice Date, Talbros Part#, Customer Part#, Quantity, Transporter, Vehicle Number, GR\LR#','11:00','12:00','Everyday','A')
@@ -82,4 +63,3 @@ Insert into Tal_dly_mail values('136','ASN Status Report','Invoice_No,Invoice_Da
 GO
 Insert into Tal_dly_mail values('132','Inventory Min. & Max.','ItemCode,ItemName,WhsCode,OnHand,MinStock,MaxStock','11:00','12:00','Everyday','A')
 GO
-

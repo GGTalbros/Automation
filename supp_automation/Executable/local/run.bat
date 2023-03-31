@@ -51,5 +51,3 @@ cd %venv_prgm_dir%
 call %venv_prgm_dir%\Scripts\deactivate.bat
 
 cd %original_dir%
-
-pause

@@ -24,21 +24,19 @@ cursor = conn.cursor()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-handler = RotatingFileHandler(filename=r'.\logfile.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8')
+handler = RotatingFileHandler(filename=r'.\hr_mail_logfile.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8')
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
-      
-
-
+  
 def email(*val):
     try:
             sender_email =  'it@bnt-talbros.com'
             rec_email = val[0]
-            password = '9555812686'
+            password = 'mdslbkoddvtlovkb'
             
             msg = MIMEMultipart()                   
             msg['From'] = sender_email

@@ -4,7 +4,7 @@ set /P env_dir_path="Enter your directory name,  (eg. C\User\'Your Directory Nam
 
 set original_dir="C:\Users\%env_dir_path%"
 
-set venv_prgm_dir="%original_dir%\py_venv\dy_mail"
+set venv_prgm_dir="%original_dir%\py_venv\dly_mail"
 
 cd %venv_prgm_dir%
 

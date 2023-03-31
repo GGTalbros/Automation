@@ -22,13 +22,24 @@ conn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                 "PWD=tel@2017;")
 cursor = conn.cursor()
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+handler = RotatingFileHandler(filename=r'.\dly_mail_logfile.log', maxBytes=5*1024*1024, backupCount=5, encoding='utf-8')
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+logger.addHandler(handler)
+
 cur_day = datetime.today().strftime('%A')
 
 cur = cursor.execute('''select code from tal_dly_mail''')
 code_fetch = cur.fetchall()
 
 for codes in code_fetch :
-
+    
+    logger.info("Sending Mail for code : {}".format(codes))
     cur = cursor.execute('''select start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
     CASE
         WHEN (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) >= start_time and (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) < end_time  THEN 'Y'
@@ -45,6 +56,7 @@ for codes in code_fetch :
     result = time_data[0][4]
     
     if result == 'Y':
+        logger.info("Time Matched!")
         cur = cursor.execute('''select Qstring from OUQR,oalt where OUQR.IntrnalKey =oalt.QueryId and oalt.Active = 'Y' and code = ? ''' , codes)   
         Qsring_fetch = cur.fetchall()
         Qstring = Qsring_fetch[0][0]
@@ -64,6 +76,7 @@ for codes in code_fetch :
         all_query = data.fetchall()
 
         if data.rowcount == 0 :
+            logger.info("No data for the code.")
             pass
             
         else :
@@ -85,10 +98,10 @@ for codes in code_fetch :
             writer.writerows(all_query)
             file.close()
         
-            
             fromaddr = 'it@bnt-talbros.com'
-            password = '9555812686'
+            password = 'mdslbkoddvtlovkb'
             toaddr = r_mail
+            #'support@talbrosaxles.com'
             
             
             msg = MIMEMultipart()
@@ -134,6 +147,7 @@ for codes in code_fetch :
             server.quit()
     
     else :
+        logger.info("Time did not matched!")
         pass
     
 os.remove(r"C:\Users\Administrator\Supp_mail.csv")
