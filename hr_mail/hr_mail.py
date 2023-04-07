@@ -121,7 +121,7 @@ for row in group_type_data :
         
         else :
             
-            email(email_ids,file_name,Subject,Body)
+            logger.info('Current day does not Match')
         
     else  :
         logger.info('Current time does not Match')
