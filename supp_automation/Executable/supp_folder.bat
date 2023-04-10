@@ -10,6 +10,7 @@ REM for creatingg Vecv Folder
 set Supp_dir="C:\Users\%env_dir_path%\Supplementary"
 cd %Supp_dir%
 mkdir Vecv
+mkdir VecvSpare
 
 set Vecv_dir="C:\Users\%env_dir_path%\Supplementary\Vecv"
 cd %Vecv_dir%
@@ -24,11 +25,16 @@ mkdir landing_zone
 mkdir Processing 
 mkdir Processed
 
-set VPrice_dir="C:\Users\%env_dir_path%\Supplementary\Vecv\Price"
-cd %VPrice_dir%
 
-set VPrice_dir="C:\Users\%env_dir_path%\Supplementary\Vecv\Dtw"
-cd %VPrice_dir%
+set VecvSpare_dir="C:\Users\%env_dir_path%\Supplementary\VecvSpare"
+cd %VecvSpare_dir%
+mkdir Grn
+mkdir Price
+mkdir Dtw
+mkdir Supplementary
 
-set VPrice_dir="C:\Users\%env_dir_path%\Supplementary\Vecv\Supplementary"
-cd %VPrice_dir%
+set VSGrn_dir="C:\Users\%env_dir_path%\Supplementary\VecvSpare\Grn"
+cd %VSGrn_dir%
+mkdir landing_zone
+mkdir Processing 
+mkdir Processed
