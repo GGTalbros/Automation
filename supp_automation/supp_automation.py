@@ -198,6 +198,17 @@ def part_list_func(list_count):
     except Exception as e:
         logger.exception(" Failed to get part list {}".format(e))
         raise Exception(" Failed to get part list {}".format(e))
+        
+def file_exists(directory, start,customer):
+    files = os.listdir(directory)
+    matching_files = [file for file in files if file.startswith(start)]
+    if len(matching_files) == 1:
+        GrPath = os.path.join(directory, matching_files[0])
+        return GrPath
+    elif len(matching_files) == 0 :
+        pass
+    else :
+        logger.info("More than one GRN File present in folder for {a}".format(a=customer))
 
 parser = configparser.ConfigParser()
 parser.read(r'.\supp_automation_config.properties')
@@ -257,16 +268,18 @@ for i in dictnry: # loop on key of dictionary( customers )
         cardcode = parser.get(arg,cardcode_key)
         
         path = os.path.join(basepath,i,key[j],parser.get(arg,path_key)) # original file path       
-
         if key[j] == 'Grn' :
+            filename_key = f'{i}{"."}{key[j]}{".Filestartname"}'
             
-            if os.path.isfile(path):
+            start_filename = parser.get(arg, filename_key)
+            GrPath = file_exists(path,start_filename,i)
+            if GrPath != None :
                 try:
                     cur_ts = datetime.now().strftime('%d-%m-%Y %H-%M-%S')
                     
-                    split_path_name = os.path.splitext(path)[0]
+                    split_path_name = os.path.splitext(GrPath)[0]
                     new_path_name = f'{split_path_name}{" "}{cur_ts}{".xls"}'
-                    os.rename(path, new_path_name)
+                    os.rename(GrPath, new_path_name)
                     
                     logger.info('File Location is :: {a}'.format(a=new_path_name))
                     ins_adt_trl(cardcode,key[j],new_path_name,'START',None)
@@ -291,15 +304,17 @@ for i in dictnry: # loop on key of dictionary( customers )
                     #changing format from xls to csv
                     os.rename(new_path_copy, new_path_renam)
                     status_upd_adt_trl(new_path_copy,'PROCESSING')
-                    #reading csv
-                    df = pd.read_csv(new_path_renam, sep='\t')                                          
+                    #reading xlsx
+                    df = pd.read_excel(new_path_renam) 
                     #renaming the column name 
-                    df.rename( columns=({ 'GR#' : 'GR_no', 'GR Dt.' : 'GR_dt', 'WSN/ASN#' : 'WSN_ASN', 'GR Qty' : 'GR_qty', 'Rej. Qty': 'Rej_qty', 'DC#': 'DC_no'}), inplace=True,)                   
+                    df.rename( columns=({ 'GR No' : 'GR_no', 'GR Date' : 'GR_dt', 'ASN No' : 'WSN_ASN', 'GR Qty' : 'GR_qty', 'Ref Document No': 'DC_no'}), inplace=True,)                   
                     df.head()                    
                     #converting dateformat
-                    df['GR_dt'] = pd.to_datetime(df.GR_dt, format='%d.%m.%Y')                   
+                    df['GR_dt'] = pd.to_datetime(df['GR_dt'],infer_datetime_format=True)                  
                     #storing date after conversion
-                    df.to_csv(new_path_renam)                  
+                    df.to_csv(new_path_renam)  
+                    if 'Rej_qty' not in df.columns:
+                        df['Rej_qty'] = 0
                     #inserting values in temp table
                     cursor = conn.cursor()
                 
