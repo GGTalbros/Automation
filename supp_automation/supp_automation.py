@@ -424,7 +424,7 @@ for i in dictnry: # loop on key of dictionary( customers )
                             
                             cur = cursor.execute("""select rdr1.price from ordr inner join rdr1 on 
                                                 ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
-                                                and ordr.U_Suppdate = ? and CANCELED = 'N'""", card_code,part_no,sdate)
+                                                and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N'""", card_code,part_no,sdate)
                             
                             #Check null of new_prc_cur
                             new_prc_cur = cur.fetchall()
