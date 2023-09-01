@@ -424,7 +424,10 @@ for i in dictnry: # loop on key of dictionary( customers )
                             
                             cur = cursor.execute("""select rdr1.price from ordr inner join rdr1 on 
                                                 ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
-                                                and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N'""", card_code,part_no,sdate)
+                                                and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N'
+                                                and ordr.docdate = (select max(ordr.docdate) from ordr inner join rdr1 on 
+                                                ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
+                                                and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N')""", card_code,part_no,sdate,card_code,part_no,sdate)
                             
                             #Check null of new_prc_cur
                             new_prc_cur = cur.fetchall()
@@ -653,11 +656,14 @@ for i in dictnry: # loop on key of dictionary( customers )
                                 dtw_prc_diff = all_row[0][2]
                                     
                             #Get PO NO
-                            cur_po_no = cursor.execute("""select ordr.NumAtCard as po_no from ordr inner join rdr1 on ordr.DocEntry = rdr1.DocEntry 
-                                                        where  SubCatNum = ? and CardCode = ?  and CANCELED = 'N' and ordr.DocDate = 
-                                                        (select max(ordr.docdate) from ordr inner join rdr1 on ordr.DocEntry = rdr1.DocEntry 
-                                                        where ordr.DocDate <= ? and SubCatNum = ? and CardCode = ?
-                                                        and CANCELED = 'N') """ ,part_no,card_code,sdate,part_no,card_code)
+                            cur_po_no = cursor.execute("""WITH suppdt  AS (SELECT ordr.NumAtCard AS po_no FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' AND DocStatus = 'O' AND ordr.DocDate = ( SELECT MAX(ordr.docdate) FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE ordr.DocDate <= ? AND SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' )),
+                            
+                            effdt AS ( SELECT ordr.NumAtCard AS po_no FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' AND DocStatus = 'O' AND ordr.DocDate = ( SELECT MAX(ordr.docdate) FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE ordr.DocDate <= ? AND SubCatNum = ? AND CardCode = ? AND CANCELED = 'N'))
+                            
+                            SELECT po_no FROM suppdt 
+                            UNION 
+                            SELECT po_no FROM effdt
+                            WHERE NOT EXISTS (SELECT 1 FROM suppdt); """ ,part_no,card_code,sdate,part_no,card_code,part_no,card_code,edate,part_no,card_code)
                             
                             po_no_data = cur_po_no.fetchall()
                             po_no_data_list = [''.join(str(i)) for i in po_no_data]
