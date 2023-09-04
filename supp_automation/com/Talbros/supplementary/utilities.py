@@ -231,7 +231,6 @@ def cardcode_list_func(conn,logger,customer,key,list_input):
                 
         else :
             cur = cursor.execute( """select DISTINCT(oinv.cardcode) from ocrd inner join oinv on ocrd.cardcode = oinv.cardcode where U_cgroup = ?""",customer )
-            raise Exception ('arpita')
             all_row = cur.fetchall()
             cardcode_list = [''.join(i) for i in all_row]
             logger.info("cardcode List for {b} is {a}".format(a=cardcode_list,b=key))
@@ -307,7 +306,7 @@ def read_pricefile_extract_data(path,logger,key,conn,customer,parser,env) :
         ins_adt_trl(conn,logger,cardcode_list_conv,key,new_path_name,'START',txt_input_conv) 
         partfulllist = part_list_func(conn,logger,list_count,cardcode_list,sdate,edate,key,list_input) # calling part list function
         
-        return Part_full_list,cardcode_list,sdate,edate,new_path_name,file_prc_txt
+        return partfulllist,cardcode_list,sdate,edate,new_path_name,file_prc_txt
 
     except Exception as e:
         logger.exception(e)

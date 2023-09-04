@@ -58,8 +58,8 @@ def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,custo
         #removing file 
         os.remove(new_path_renam)                     
         #moving the main file
-        mov = f'{customer_name}{"."}{"Grn"}{".Filename.mov"}'
-        path_mov = os.path.join(basepath,customer_name,key,parser.get(env,mov))  # move the original  path file to processed path
+        mov = f'{customer}{"."}{"Grn"}{".Filename.mov"}'
+        path_mov = os.path.join(basepath,customer,key,parser.get(env,mov))  # move the original  path file to processed path
 
         cur_ts = datetime.now().strftime('%d-%m-%Y %H-%M-%S')
         shutil.move(new_path_name, path_mov + cur_ts + ".xls")
@@ -83,20 +83,20 @@ def process_pricedata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdat
         use_supptxns = parser.get(env, use_supptxns_key)
         if use_supptxns == 'Y' :
             cursor = conn.cursor()
-            cardcodelist = tuple(cardcode_list)
             
-            plc = ",".join(["?"] * len(cardcodelist))
+            plc = ",".join(["?"] * len(cardcode_list))
             
             query1 ='''select top 1 cast(supp_date as date) from supp_txns where status = 'A' and cardcode in (%s) order by supp_date desc'''%plc
-            cur = cursor.execute(query1,cardcodelist)
+            cur = cursor.execute(query1,cardcode_list)
             supptbl_date = cur.fetchone()
             
             query2 ='''select top 1 cast(supp_date as date) from supp_prc_txns where status = 'A'  and cardcode in (%s) order by supp_date desc'''%plc
-            cur = cursor.execute(query2,cardcodelist)
+            cur = cursor.execute(query2,cardcode_list)
             prctbl_date = cur.fetchone()
             
             none_flag = 'I'
             equal_flag = 'I'
+
             
             if supptbl_date is None and prctbl_date is None :
                 none_flag = 'A'
@@ -144,8 +144,11 @@ def fetch_and_insert_prices(logger,conn,cardcode_list,partfulllist,sdate,edate,e
                 logger.info(part_no)
                 
                 cur = cursor.execute("""select rdr1.price from ordr inner join rdr1 on 
-                                    ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
-                                    and ordr.U_Suppdate = ? and CANCELED = 'N'""", cardcode,part_no,sdate)
+                                        ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
+                                        and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N'
+                                        and ordr.docdate = (select max(ordr.docdate) from ordr inner join rdr1 on 
+                                        ordr.DocEntry = rdr1.DocEntry  where CardCode = ? and SubCatNum = ? 
+                                        and ordr.U_Suppdate = ? and ordr.series = '846' and CANCELED = 'N')""", cardcode,part_no,sdate,cardcode,part_no,sdate)
                 
                 #Check null of new_prc_cur
                 new_prc_cur = cur.fetchall()
@@ -258,7 +261,14 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
         file.close()
         
         cursor = conn.cursor()
-        cur = cursor.execute("select count(distinct u_suppdate) from oinv where u_suppdate = ? and CANCELED = 'N'", sdate)
+        
+        plc = ",".join(["?"] * len(cardcode_list))
+        args = cardcode_list
+        args.append(sdate)
+            
+        query ='''select count(distinct u_suppdate) from oinv where  cardcode in (%s) and u_suppdate = ? and CANCELED = 'N' '''%plc
+        cur = cursor.execute(query,args)
+
         date_count = cur.fetchone()            
         if date_count[0] == 0 :
             for cardcode, part_list in zip(cardcode_list, partfulllist):
@@ -290,11 +300,14 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                         dtw_prc_diff = all_row[0][2]
                             
                     #Get PO NO
-                    cur_po_no = cursor.execute("""select ordr.NumAtCard as po_no from ordr inner join rdr1 on ordr.DocEntry = rdr1.DocEntry 
-                                                where  SubCatNum = ? and CardCode = ?  and CANCELED = 'N' and ordr.DocDate = 
-                                                (select max(ordr.docdate) from ordr inner join rdr1 on ordr.DocEntry = rdr1.DocEntry 
-                                                where ordr.DocDate <= ? and SubCatNum = ? and CardCode = ?
-                                                and CANCELED = 'N') """ ,part_no,cardcode,sdate,part_no,cardcode)
+                    cur_po_no = cursor.execute("""WITH suppdt  AS (SELECT ordr.NumAtCard AS po_no FROM ordr INNER JOIN rdr1 ON ordr.DocEntry =  rdr1.DocEntry WHERE SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' AND DocStatus = 'O' AND ordr.DocDate = ( SELECT MAX(ordr.docdate) FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE ordr.DocDate <= ? AND SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' )),
+                            
+                    effdt AS ( SELECT ordr.NumAtCard AS po_no FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE SubCatNum = ? AND CardCode = ? AND CANCELED = 'N' AND DocStatus = 'O' AND ordr.DocDate = ( SELECT MAX(ordr.docdate) FROM ordr INNER JOIN rdr1 ON ordr.DocEntry = rdr1.DocEntry WHERE ordr.DocDate <= ? AND SubCatNum = ? AND CardCode = ? AND CANCELED = 'N'))
+                    
+                    SELECT po_no FROM suppdt 
+                    UNION 
+                    SELECT po_no FROM effdt
+                    WHERE NOT EXISTS (SELECT 1 FROM suppdt); """ ,part_no,cardcode,sdate,part_no,cardcode,part_no,cardcode,edate,part_no,cardcode)
                     
                     po_no_data = cur_po_no.fetchall()
                     po_no_data_list = [''.join(str(i)) for i in po_no_data]
@@ -447,9 +460,15 @@ def process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate
         if use_supptxns == 'Y' :
         
             cursor = conn.cursor()
-            cur = cursor.execute("select count(status) from supp_txns where status = 'A' and supp_date = ? ", sdate)
+
+            plc = ",".join(["?"] * len(cardcode_list))
+            args = cardcode_list
+            args.append(sdate)
+            
+            query ='''select count(status) from supp_txns where status = 'A' and  cardcode in (%s) and supp_date = ? '''%plc
+            cur = cursor.execute(query,args)
             status_count = cur.fetchone()
-                                
+        
             if status_count[0] == 0 :
                 generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
             else :
