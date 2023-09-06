@@ -19,7 +19,7 @@ Set "Host=%Computername%"
 set supp_server_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable"
 cd %supp_server_dir%
 
-If "%Host%"=="SQL-1" (mkdir prod)
+If "%Host%"=="MONU" (mkdir prod)
 
 set sub_pkg_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation\com"
 cd %sub_pkg_dir%
@@ -35,7 +35,7 @@ mkdir supplementary
 echo %Host%
 echo working
 
-If "%Host%"=="SQL-1" (copy C:\Users\abc\zip_folder\Automation-main\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
+If "%Host%"=="MONU" (copy C:\Users\abc\zip_folder\Automation-main\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
 copy C:\Users\abc\zip_folder\Automation-main\supp_automation\Executable\prod C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\prod
 copy C:\Users\abc\zip_folder\Automation-main\supp_automation\main.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
 copy C:\Users\abc\zip_folder\Automation-main\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation
