@@ -11,6 +11,7 @@ mkdir supp_automation
 
 set supp_automation_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation"
 cd %supp_automation_dir%
+mkdir com
 mkdir Executable
 
 Set "Host=%Computername%"
@@ -23,15 +24,29 @@ If "%Host%"=="SERVER2" (mkdir prod)
 If "%Host%"=="SERVER3" (mkdir uat) else (echo Invalid Server)
 
 
-If "%Host%"=="SERVER2" (copy \\192.168.0.60\Prod_Deployment\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
-copy \\192.168.0.60\Prod_Deployment\supp_automation\Executable\prod C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\prod
-copy \\192.168.0.60\Prod_Deployment\supp_automation\supp_automation.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
-copy \\192.168.0.60\Prod_Deployment\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation)
+set sub_pkg_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation\com"
+cd %sub_pkg_dir%
+mkdir Talbros 
+cd Talbros
+mkdir supplementary
 
-If "%Host%"=="SERVER3" (copy \\192.168.0.25\UAT_Deployment\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
-copy \\192.168.0.25\UAT_Deployment\supp_automation\Executable\uat C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\uat
-copy \\192.168.0.25\UAT_Deployment\supp_automation\supp_automation.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
-copy \\192.168.0.25\UAT_Deployment\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation) else (echo Invalid Server)
+
+If "%Host%"=="SERVER2" (copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
+copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\Executable\prod C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\prod
+copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\main.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
+copy C:\Users\abc\zip_folder\Automation-main\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation
+copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\com C:\Users\%env_dir_path%\Python_runnables\supp_automation\com
+copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\com\Talbros C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros
+copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\com\Talbros\supplementary C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros\supplementary)
+
+
+If "%Host%"=="SERVER3" (copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
+copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\Executable\prod C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\prod
+copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\main.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
+copy C:\Users\abc\zip_folder\Automation-main\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation
+copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com C:\Users\%env_dir_path%\Python_runnables\supp_automation\com
+copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com\Talbros C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros
+copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com\Talbros\supplementary C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros\supplementary) else (echo Invalid Server)
 
 
 call C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\supp_env.bat
