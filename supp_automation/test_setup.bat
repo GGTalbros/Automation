@@ -19,7 +19,7 @@ Set "Host=%Computername%"
 set supp_server_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable"
 cd %supp_server_dir%
 
-If "%Host%"=="SQL-1"(mkdir prod)
+If "%Host%"=="SQL-1" (mkdir prod)
 
 set sub_pkg_dir="C:\Users\%env_dir_path%\Python_runnables\supp_automation\com"
 cd %sub_pkg_dir%
