@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[supp_adt_trl](
 	[audit_id] [int] IDENTITY(1,1) NOT NULL,
-	[cardcode] [varchar](15) NULL,
+	[cardcode] [varchar](max) NULL,
 	[module] [varchar](20) NULL,
 	[path] [varchar](300) NULL,
 	[data] [varbinary](max) NULL,
