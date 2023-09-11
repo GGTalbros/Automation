@@ -45,7 +45,7 @@ cd %venv_prgm_dir%
 call %venv_prgm_dir%\Scripts\activate.bat
 
 cd %original_dir%\Python_runnables\supp_automation
-python "C:\Users\abc\Python_runnables\supp_automation\supp_automation.py " -e local
+python "C:\Users\abc\Python_runnables\supp_automation\main.py " -e local
 
 cd %venv_prgm_dir%
 call %venv_prgm_dir%\Scripts\deactivate.bat
