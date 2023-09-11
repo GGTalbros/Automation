@@ -43,7 +43,7 @@ copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\com\Talbros\
 If "%Host%"=="SERVER3" (copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\Executable C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable
 copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\Executable\prod C:\Users\%env_dir_path%\Python_runnables\supp_automation\Executable\prod
 copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\main.py C:\Users\%env_dir_path%\Python_runnables\supp_automation
-copy \\192.168.0.60\Prod_Deployment\Automation-main\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation
+copy \\192.168.0.25\Prod_Deployment\Automation-main\supp_automation\supp_automation_config.properties C:\Users\%env_dir_path%\Python_runnables\supp_automation
 copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com C:\Users\%env_dir_path%\Python_runnables\supp_automation\com
 copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com\Talbros C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros
 copy \\192.168.0.25\UAT_Deployment\Automation-main\supp_automation\com\Talbros\supplementary C:\Users\%env_dir_path%\Python_runnables\supp_automation\com\Talbros\supplementary) else (echo Invalid Server)
