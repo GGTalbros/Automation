@@ -14,5 +14,7 @@ pip install pandas
 pip install pyodbc
 pip install secure-smtplib
 pip install python-dateutil
+pip install openpyxl
+pip install lxml
 
 call %venv_prgm_dir%\Scripts\deactivate.bat
