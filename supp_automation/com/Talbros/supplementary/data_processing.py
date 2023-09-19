@@ -7,6 +7,7 @@ import csv
 from os.path import exists as file_exists
 from decimal import Decimal
 import traceback 
+import numpy as np
 
 
 def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,customer,key,basepath):
@@ -19,15 +20,27 @@ def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,custo
             df = pd.read_csv(new_path_renam, sep='\t')
         elif file_type_value == 'xlsx':
             df = pd.read_excel(new_path_renam)
+        elif file_type_value == 'xls':
+            if customer == 'Dana' :
+                dfs = pd.read_html(new_path_renam)
+                df = dfs[0]
+                df = df[1:]
+            else :
+                pass
+    
         #renaming the column name 
-        df.rename(columns=eval(parser.get(env, rename_column)), inplace=True)                   
-        df.head() 
+        df.rename(columns=eval(parser.get(env, rename_column)), inplace=True)                    
         #converting dateformat
-        df['GR_dt'] = pd.to_datetime(df['GR_dt'],infer_datetime_format=True)                   
+        df['GR_dt'] = pd.to_datetime(df['GR_dt'],infer_datetime_format=True)   
+        df['GR_no'] = df['GR_no'].astype('int64')
+        df['DC_no'] = df['DC_no'].astype('int64')
         #storing date after conversion
         df.to_csv(new_path_renam)
         if 'Rej_qty' not in df.columns:
             df['Rej_qty'] = 0
+            
+        if 'WSN_ASN' not in df.columns:
+            df['WSN_ASN'] = None
         #inserting values in temp table
         cursor = conn.cursor()
     

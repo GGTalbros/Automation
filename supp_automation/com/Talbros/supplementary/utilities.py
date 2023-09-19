@@ -257,12 +257,14 @@ def convert_grfile_upd_adt(path,logger,parser,key,conn,customer_name,basepath,en
         copy = f'{customer_name}{"."}{"Grn"}{".Filename.copy"}'
         path_copy = os.path.join(basepath,customer_name,key,parser.get(env,copy)) # copy the file from original path to another path 
         split_path_copy = os.path.splitext(path_copy)[0]
-        new_path_copy = f'{split_path_copy}{" "}{cur_ts}{".xls"}'
+        extn_copy = os.path.splitext(path_copy)[1]
+        new_path_copy = f'{split_path_copy}{" "}{cur_ts}{extn_copy}'
         
         renam = f'{customer_name}{"."}{"Grn"}{".Filename.renam"}'
         path_renam = os.path.join(basepath,customer_name,key,parser.get(env,renam)) # rename the copied file with csv extension
         split_path_renam = os.path.splitext(path_renam)[0]
-        new_path_renam = f'{split_path_renam}{" "}{cur_ts}{".csv"}'
+        extn_renam = os.path.splitext(path_renam)[1]
+        new_path_renam = f'{split_path_renam}{" "}{cur_ts}{extn_renam}'
         
         logger.info('GRN File is found')                       
         #copying file
