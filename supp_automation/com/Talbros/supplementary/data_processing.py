@@ -28,6 +28,8 @@ def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,custo
         df.to_csv(new_path_renam)
         if 'Rej_qty' not in df.columns:
             df['Rej_qty'] = 0
+        else :
+            df['Rej_qty'] = df['Rej_qty'].fillna('0')
         #inserting values in temp table
         cursor = conn.cursor()
     
@@ -515,15 +517,16 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                 part_no = part
                 logger.info(part_no)
                 
+                prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
+                                            where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
+                all_row = prc_dta.fetchone()
+                all_row_list = [''.join(str(i)) for i in all_row]
+                
+                new_prc = all_row[0]
+                old_prc = all_row[1]
+                
                 if dtw_format == 'aggregated' :
-                    prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
-                    where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
-                    all_row = prc_dta.fetchone()
-                    all_row_list = [''.join(str(i)) for i in all_row]
-                    
-                    new_prc = all_row[0]
-                    old_prc = all_row[1]
-                    
+                
                     if new_prc > old_prc :
                         cur1 = cursor.execute('''WITH OINV_data(ASN_WSN, GR_No, GR_Date,Challan_Qty, Short_Qty, Rej_Qty, GR_Qty, o_inv_no, o_Part_no, HSN_no,Vat_prcnt) AS (
                             SELECT oinv.U_SuppWSNASN, oinv.U_SuppGR, oinv.U_SuppGRDate, inv1.U_ChallanQty,'0', oinv.U_SuppRejQty ,
@@ -597,30 +600,59 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                 and tmp.subcatnum = ? OPTION (MAXRECURSION 0)''',sdate,part_no,cardcode,sdate,edate,part_no)
                                     
                 elif dtw_format == 'separated' : 
-                    cur1 = cursor.execute('''WITH OINV_data(  docnum,DocDate, newprice,  oldprice,inv_no,subcatnum,taxcode) AS (
-                                        SELECT oinv.DocNum,cast(oinv.DocDate as date),
-                                        oinv.U_SuppNewPrice,oinv.U_SuppOldPrice,oinv.U_OriginalInvoiceNo ,inv1.subcatnum ,inv1.taxcode from OINV
-                                        inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry 
-                                        where OINV.CardCode in (?) and 
-                                        oinv.U_suppdate = ?
-                                        and oinv.CANCELED = 'N'                                                 
-                                        and inv1.subcatnum = ?
-                                        ),
-        
-                                        gr_data(o_inv_no,GrNo,Gr_qty) as(
-                                                    select oinv.docnum ,oinv.U_SuppGR,OINV.U_SuppGRQty from oinv
-                                                    inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry 
-                                                    where OINV.CardCode in (?)
-                                                    and inv1.TargetType NOT IN ('14')
-                                                    and inv1.ItemCode != 'AXLE'
-                                                    and oinv.CANCELED = 'N'
-                                                    and OINV.DocDate  >= ? and OINV.DocDate < ?
-                                                    and OINV.U_SuppGR is not NULL)
-                            
-                            
+                
+                    if new_prc > old_prc :
+                        cur1 = cursor.execute('''WITH OINV_data(  docnum,DocDate, newprice,  oldprice,inv_no,subcatnum,taxcode) AS (
+                                            SELECT oinv.DocNum,cast(oinv.DocDate as date),
+                                            oinv.U_SuppNewPrice,oinv.U_SuppOldPrice,oinv.U_OriginalInvoiceNo ,inv1.subcatnum ,inv1.taxcode from OINV
+                                            inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry 
+                                            where OINV.CardCode in (?) and 
+                                            oinv.U_suppdate = ?
+                                            and oinv.CANCELED = 'N'                                                 
+                                            and inv1.subcatnum = ?
+                                            ),
+            
+                                            gr_data(o_inv_no,GrNo,Gr_qty) as(
+                                            select oinv.docnum ,oinv.U_SuppGR,OINV.U_SuppGRQty from oinv
+                                            inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry 
+                                            where OINV.CardCode in (?)
+                                            and inv1.TargetType NOT IN ('14')
+                                            and inv1.ItemCode != 'AXLE'
+                                            and oinv.CANCELED = 'N'
+                                            and OINV.DocDate  >= ? and OINV.DocDate < ?
+                                            and OINV.U_SuppGR is not NULL)
+                                
+                                
                                             select GrNo,newprice,oldprice ,DocNum, DocDate,CAST(SUBSTRING(taxcode, PATINDEX('%[0-9]%', taxcode), LEN(taxcode)) AS INT) AS numeric_taxcode,abs(oldprice - newprice)as prc_diff  ,Gr_qty
                                             from OINV_data join gr_data on OINV_data.inv_no = gr_data.o_inv_no 
                                             where subcatnum = ? ''',cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
+                                            
+                    else:
+                        cur1 = cursor.execute('''WITH ORIN_data(  docnum,DocDate, newprice,  oldprice,inv_no,subcatnum,taxcode) AS (
+                                            SELECT orin.DocNum,cast(orin.DocDate as date),
+                                            orin.U_SuppNewPrice,orin.U_SuppOldPrice,orin.U_OriginalInvoiceNo ,rin1.subcatnum ,rin1.taxcode from ORIN
+                                            inner join RIN1  on orin.DocEntry = rin1.DocEntry 
+                                            where orin.CardCode in (?) and 
+                                            orin.U_suppdate = ?
+                                            and orin.CANCELED = 'N'                                                 
+                                            and rin1.subcatnum = ?
+                                            ),
+            
+                                            gr_data(o_inv_no,GrNo,Gr_qty) as(
+                                            select oinv.docnum ,oinv.U_SuppGR,OINV.U_SuppGRQty from oinv
+                                            inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry 
+                                            where OINV.CardCode in (?)
+                                            and inv1.TargetType NOT IN ('14')
+                                            and inv1.ItemCode != 'AXLE'
+                                            and oinv.CANCELED = 'N'
+                                            and OINV.DocDate  >= ? and OINV.DocDate < ?
+                                            and OINV.U_SuppGR is not NULL)
+                                
+                                
+                                            select GrNo,newprice,oldprice ,DocNum, DocDate,CAST(SUBSTRING(taxcode, PATINDEX('%[0-9]%', taxcode), LEN(taxcode)) AS INT) AS numeric_taxcode,abs(oldprice - newprice)as prc_diff  ,Gr_qty
+                                            from OINV_data join gr_data on OINV_data.inv_no = gr_data.o_inv_no 
+                                            where subcatnum = ? ''',cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
+                        
             
                 supp_data = cur1.fetchall()
                 supp_data_list = [''.join(str(i)) for i in supp_data]
