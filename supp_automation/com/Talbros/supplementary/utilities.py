@@ -363,8 +363,11 @@ def read_suppfile_extract_data(path,logger,key,conn,customer,parser,env) :
         split_path_name = os.path.splitext(path)[0]
         new_path_name = f'{split_path_name}{" "}{cur_ts}{".txt"}'
         os.rename(path, new_path_name)
-    
-        file_name = f"{'Supp'}{' '}{cur_ts}{'.csv'}"
+        
+        if customer == 'Dana' :
+            file_name = f"{'Supp'}{' '}{cur_ts}{'.xlsx'}"
+        else:
+            file_name = f"{'Supp'}{' '}{cur_ts}{'.csv'}"
         logger.info('File Location is :: {a}'.format(a=new_path_name))
     
         # reading value fromm text file 

@@ -2505,3 +2505,1965 @@ Exception: There is an issue in functioning of GRN upadate process
 2023-09-19 11:12:13,646 - com.Talbros.supplementary.utilities - INFO -  DTW File for AAL is not found
 2023-09-19 11:12:13,647 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
 2023-09-19 11:12:13,647 - com.Talbros.supplementary.utilities - INFO - Supplementary File for AAL is not found
+2023-10-23 12:27:53,892 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-23 12:27:53,908 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-23 12:27:53,908 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:27:54,642 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Mahindra\Grn\landing_zone\R&IR reportData (4) 18-10-2023 09-55-59 23-10-2023 12-27-54.xls
+2023-10-23 12:27:54,986 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Grn
+2023-10-23 12:27:57,126 - com.Talbros.supplementary.utilities - INFO - Blob Updated
+2023-10-23 12:27:57,126 - com.Talbros.supplementary.utilities - INFO - GRN File is found
+2023-10-23 12:27:57,220 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:28:09,889 - com.Talbros.supplementary.utilities - ERROR - invalid literal for int() with base 10: ' '
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 36, in update_grn_details
+    df['DC_no'] = df['DC_no'].astype('int64')
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 5912, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 419, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 304, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 580, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1292, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1237, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1154, in astype_nansafe
+    return lib.astype_intsafe(arr, dtype)
+  File "pandas\_libs\lib.pyx", line 668, in pandas._libs.lib.astype_intsafe
+ValueError: invalid literal for int() with base 10: ' '
+2023-10-23 12:28:14,622 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 36, in update_grn_details
+    df['DC_no'] = df['DC_no'].astype('i
+2023-10-23 12:28:14,653 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:28:14,669 - com.Talbros.supplementary.utilities - ERROR - There is an issue in functioning of GRN upadate process
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 36, in update_grn_details
+    df['DC_no'] = df['DC_no'].astype('int64')
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 5912, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 419, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 304, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 580, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1292, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1237, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\cast.py", line 1154, in astype_nansafe
+    return lib.astype_intsafe(arr, dtype)
+  File "pandas\_libs\lib.pyx", line 668, in pandas._libs.lib.astype_intsafe
+ValueError: invalid literal for int() with base 10: ' '
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 78, in main
+    data_processing.update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,customer,key[j],basepath)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 90, in update_grn_details
+    raise Exception("There is an issue in functioning of GRN upadate process")
+Exception: There is an issue in functioning of GRN upadate process
+2023-10-23 12:28:18,387 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 36, in update_grn_details
+    df['DC_no'] = df['DC_no'].astype('i
+2023-10-23 12:28:18,402 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:28:18,418 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:28:18,434 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-23 12:28:18,434 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:28:18,449 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-23 12:28:18,449 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 23-10-2023 12-28-18.txt
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-23 12:28:18,465 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-23 12:28:18,496 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-23 12:28:18,496 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-23 12:28:18,574 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-23 12:28:18,574 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-23 12:28:18,918 - com.Talbros.supplementary.utilities - ERROR - local variable 'supp_basic_amount' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount ]
+UnboundLocalError: local variable 'supp_basic_amount' referenced before assignment
+2023-10-23 12:28:22,714 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:28:22,714 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:28:22,730 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:28:22,730 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount ]
+UnboundLocalError: local variable 'supp_basic_amount' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 533, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 930, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-23 12:30:14,782 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-23 12:30:14,782 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-23 12:30:14,782 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-23 12:30:15,673 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 23-10-2023 12-30-15.txt
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-23 12:30:15,688 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-23 12:30:15,829 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-23 12:30:15,844 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-23 12:30:15,844 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-23 12:30:15,844 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-23 12:30:15,969 - com.Talbros.supplementary.utilities - ERROR - local variable 'supp_basic_amount' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount ]
+UnboundLocalError: local variable 'supp_basic_amount' referenced before assignment
+2023-10-23 12:30:20,749 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:30:20,749 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:30:20,765 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:30:20,765 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount ]
+UnboundLocalError: local variable 'supp_basic_amount' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 533, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 930, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-23 12:30:24,249 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:30:24,264 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-23 12:30:24,280 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:30:24,280 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 909, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount ]
+UnboundLocalError: local variable 'supp_basic_amount' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 533, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 930, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 549, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-23 12:30:27,733 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-23 12:30:27,734 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-23 12:30:27,776 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:33:57,600 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-23 12:33:57,600 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-23 12:33:57,600 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:33:57,678 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 23-10-2023 12-33-57.txt
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-23 12:33:57,693 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-23 12:33:57,725 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-23 12:33:57,725 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-23 12:33:57,725 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-23 12:33:57,725 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-23 12:33:57,818 - com.Talbros.supplementary.utilities - ERROR - local variable 'price_diff' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decimal(price_diff) * Decimal(gr_qty)
+UnboundLocalError: local variable 'price_diff' referenced before assignment
+2023-10-23 12:34:01,396 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decima
+2023-10-23 12:34:01,396 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decima
+2023-10-23 12:34:01,443 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:34:01,443 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decimal(price_diff) * Decimal(gr_qty)
+UnboundLocalError: local variable 'price_diff' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 533, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 931, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-23 12:34:05,067 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decima
+2023-10-23 12:34:05,067 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decima
+2023-10-23 12:34:05,082 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:34:05,082 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 908, in generate_supplementary_data
+    supp_basic_amount= Decimal(price_diff) * Decimal(gr_qty)
+UnboundLocalError: local variable 'price_diff' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 533, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 931, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 549, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-23 12:34:08,425 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-23 12:34:08,441 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-23 12:34:08,457 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:35:38,124 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-23 12:35:38,124 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-23 12:35:38,124 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 23-10-2023 12-35-38.txt
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-23 12:35:38,218 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-23 12:35:38,249 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-23 12:35:38,249 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-23 12:35:38,249 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-23 12:35:38,249 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-23 12:35:39,218 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-23 12:35:40,702 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-23 12:35:41,092 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-23 12:35:42,748 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-23 12:35:42,936 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:35:47,513 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-23 12:35:47,513 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-23 12:43:44,929 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-23 12:43:44,929 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-23 12:43:44,929 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 23-10-2023 12-43-45.txt
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-23 12:43:45,616 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-23 12:43:45,647 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-23 12:43:45,647 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-23 12:43:45,663 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-23 12:43:45,663 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-23 12:43:46,553 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-23 12:43:46,803 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-23 12:43:47,053 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-23 12:43:49,615 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-23 12:43:49,803 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-23 12:43:57,926 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-23 12:43:57,926 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-25 10:17:51,607 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:17:51,654 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:17:51,654 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:17:51,903 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:17:51,903 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:17:51,935 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:17:51,935 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:17:51,951 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:17:51,966 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:17:51,997 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:17:51,997 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:17:52,060 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:17:52,060 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:17:52,060 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:17:52,122 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:17:52,122 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:17:52,154 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:17:52,154 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:17:52,185 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:17:52,185 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:17:52,200 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:17:52,200 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:17:52,200 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:17:52,216 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:17:52,216 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:17:52,232 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:17:52,232 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:17:52,232 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:17:52,232 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:17:52,232 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-17-52.txt
+2023-10-25 10:17:52,263 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:17:52,263 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:17:52,294 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:17:52,294 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:17:52,294 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:17:52,294 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:17:53,388 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-25 10:17:53,716 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-25 10:17:53,887 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-25 10:17:56,121 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-25 10:17:56,277 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:18:00,152 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-25 10:18:00,167 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-25 10:20:48,597 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:20:48,597 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:20:48,597 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:20:48,659 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-20-48.txt
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:20:48,675 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:20:48,706 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:20:48,706 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:20:48,706 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:20:48,706 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:20:50,268 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-25 10:20:50,534 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-25 10:20:50,737 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-25 10:20:52,611 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-25 10:20:52,783 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:20:56,798 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-25 10:20:56,798 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-25 10:46:56,437 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:46:56,484 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:46:56,484 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:47:11,981 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-47-11.txt
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:47:11,996 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:47:12,027 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:47:12,059 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:47:12,105 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:47:12,105 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:47:12,199 - com.Talbros.supplementary.utilities - ERROR - unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2023-10-25 10:47:34,038 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0
+2023-10-25 10:47:34,038 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0
+2023-10-25 10:47:36,209 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:47:36,584 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 913, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:47:40,802 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0
+2023-10-25 10:47:40,802 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0
+2023-10-25 10:47:41,005 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:47:41,036 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =supp_basic_amount*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 913, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:47:44,821 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:47:44,826 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:47:44,902 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:48:59,435 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:48:59,435 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:48:59,435 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-49-23.txt
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:49:23,977 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:49:31,647 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:49:34,755 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:49:37,395 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:49:37,395 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:49:45,159 - com.Talbros.supplementary.utilities - ERROR - unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_amount)*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+2023-10-25 10:50:10,919 - com.Talbros.supplementary.utilities - ERROR - Email Sending Failed..Connection unexpectedly closed
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_amount)*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 151, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+2023-10-25 10:50:11,372 - com.Talbros.supplementary.utilities - ERROR - Email Sending Failed..Connection unexpectedly closed
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_amount)*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 151, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 910, in generate_supplementary_data
+    sendemail(logger,parser,env,"Error in Supplementary",message)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+2023-10-25 10:50:28,963 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_
+2023-10-25 10:50:28,963 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_
+2023-10-25 10:50:29,056 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:50:29,119 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 889, in generate_supplementary_data
+    IGST =Decimal(supp_basic_amount)*0.28
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 151, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 910, in generate_supplementary_data
+    sendemail(logger,parser,env,"Error in Supplementary",message)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:50:47,302 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:50:47,302 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:50:49,411 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:52:58,635 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:52:58,635 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:52:58,635 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-53-24.txt
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:53:24,520 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:53:27,316 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:53:28,534 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:53:29,050 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:53:29,050 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:53:29,519 - com.Talbros.supplementary.utilities - ERROR - local variable 'CGST' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount,supp_place_code,IGST,CGST,SGST]
+UnboundLocalError: local variable 'CGST' referenced before assignment
+2023-10-25 10:53:39,079 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-25 10:53:39,079 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-25 10:53:39,110 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:53:39,219 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount,supp_place_code,IGST,CGST,SGST]
+UnboundLocalError: local variable 'CGST' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 913, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:53:42,828 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-25 10:53:42,828 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_pla
+2023-10-25 10:53:42,843 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:53:42,875 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 892, in generate_supplementary_data
+    one_row =[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount,supp_place_code,IGST,CGST,SGST]
+UnboundLocalError: local variable 'CGST' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 913, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:53:46,671 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:53:46,671 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 10:53:46,889 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:56:07,640 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 10:56:07,640 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 10:56:07,640 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 10:56:27,901 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 10-56-27.txt
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 10:56:27,916 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 10:56:28,088 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 10:56:28,119 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 10:56:28,119 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 10:56:28,119 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 10:56:29,478 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-25 10:56:29,853 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-25 10:56:30,228 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-25 10:56:32,712 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-25 10:56:58,144 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:57:22,841 - com.Talbros.supplementary.utilities - ERROR - Email Sending Failed..Connection unexpectedly closed
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+2023-10-25 10:57:22,841 - com.Talbros.supplementary.utilities - ERROR - Email Sending Failed..Connection unexpectedly closed
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 906, in generate_supplementary_data
+    sendemail(logger,parser,env,file_name,file_name,"Supplementary FILE",msg)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+2023-10-25 10:57:59,067 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Us
+2023-10-25 10:57:59,067 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Us
+2023-10-25 10:58:04,988 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:58:07,472 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 906, in generate_supplementary_data
+    sendemail(logger,parser,env,file_name,file_name,"Supplementary FILE",msg)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 916, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:58:40,359 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Us
+2023-10-25 10:58:40,359 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Us
+2023-10-25 10:58:40,734 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 10:58:40,922 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 906, in generate_supplementary_data
+    sendemail(logger,parser,env,file_name,file_name,"Supplementary FILE",msg)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 916, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 10:58:56,496 - com.Talbros.supplementary.utilities - ERROR - Email Sending Failed..Connection unexpectedly closed
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 134, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 906, in generate_supplementary_data
+    sendemail(logger,parser,env,file_name,file_name,"Supplementary FILE",msg)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 157, in sendemail
+    raise Exception("Email Sending Failed..{}".format(e))
+Exception: Email Sending Failed..Connection unexpectedly closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 916, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 151, in sendemail
+    server.login(sender_email,password)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 714, in login
+    self.ehlo_or_helo_if_needed()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 452, in ehlo
+    (code, msg) = self.getreply()
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+2023-10-25 11:04:45,638 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 11:04:45,638 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 11:04:45,638 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 11-05-07.txt
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 11:05:07,976 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 11:05:08,008 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 11:05:08,008 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 11:05:08,008 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 11:05:08,008 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 11:05:09,492 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-25 11:05:09,913 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-25 11:05:10,241 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-25 11:05:11,772 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-25 11:05:11,929 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 11:05:17,318 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-25 11:05:17,318 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-25 11:11:32,331 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 11:11:32,331 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 11:11:32,331 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 11:11:45,094 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 11-11-45.txt
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 11:11:45,110 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 11:11:45,141 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 11:11:45,141 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 11:11:45,141 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 11:11:45,141 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 11:11:45,219 - com.Talbros.supplementary.utilities - ERROR - unsupported operand type(s) for +: 'float' and 'str'
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+cess
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+2023-10-25 11:11:48,734 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+
+2023-10-25 11:11:48,734 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+
+2023-10-25 11:11:48,750 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 11:11:48,750 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+cess
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 920, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 11:11:59,294 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+
+2023-10-25 11:11:59,294 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+
+2023-10-25 11:11:59,310 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 11:11:59,310 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 896, in generate_supplementary_data
+    Total_amt=IGST+CGST+SGST+cess
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 499, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 920, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 515, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-25 11:12:03,652 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 11:12:03,652 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-25 11:12:03,887 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 11:14:31,358 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-25 11:14:31,358 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-25 11:14:31,358 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-25 11:14:41,965 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 25-10-2023 11-14-41.txt
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-25 11:14:41,981 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-25 11:14:42,262 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-25 11:14:42,449 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-25 11:14:42,559 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-25 11:14:42,559 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-25 11:14:43,808 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-25 11:14:44,105 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-25 11:14:44,261 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-25 11:14:45,714 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-25 11:14:46,198 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-25 11:15:17,832 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-25 11:15:17,832 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-26 13:06:33,263 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:06:33,295 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:06:33,295 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:06:34,076 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:06:34,076 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:06:34,123 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:06:34,123 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:06:34,154 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:06:34,154 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:06:34,170 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:06:34,170 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:06:34,201 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:06:34,201 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:06:34,201 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:06:34,248 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:06:34,248 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:06:34,294 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:06:34,294 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:06:34,294 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:06:34,294 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:06:34,310 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:06:34,310 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:06:34,310 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:06:34,341 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:06:34,341 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:06:34,373 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:06:34,373 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:06:34,373 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:06:34,373 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:06:34,373 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-06-34.txt
+2023-10-26 13:06:34,419 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:06:34,419 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:06:34,576 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:06:34,591 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:06:34,623 - com.Talbros.supplementary.utilities - ERROR - name 'cur_ts' is not defined
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' '}{cur_ts}{'.xlsx'}"
+NameError: name 'cur_ts' is not defined
+2023-10-26 13:06:38,856 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' 
+2023-10-26 13:06:38,856 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' 
+2023-10-26 13:06:38,965 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:06:38,981 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' '}{cur_ts}{'.xlsx'}"
+NameError: name 'cur_ts' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 949, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:06:42,668 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' 
+2023-10-26 13:06:42,668 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' 
+2023-10-26 13:06:42,824 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:06:42,839 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 551, in generate_supplementary_data
+    file_name = f"{'Supp'}{' '}{cur_ts}{'.xlsx'}"
+NameError: name 'cur_ts' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 949, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 517, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:06:47,620 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:06:47,620 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:06:47,854 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:12:49,996 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:12:50,012 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:12:50,012 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:12:50,074 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:12:50,074 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:12:50,074 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:12:50,074 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:12:50,074 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-12-50.txt
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:12:50,090 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:12:50,121 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:12:50,121 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:12:50,121 - com.Talbros.supplementary.utilities - ERROR - local variable 'file_name' referenced before assignment
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 387, in read_suppfile_extract_data
+    return partfulllist,cardcode_list,sdate,edate,new_path_name,file_supp_txt,file_name
+UnboundLocalError: local variable 'file_name' referenced before assignment
+2023-10-26 13:12:53,605 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 387, in read_suppfile_extract_data
+    return partfulllist,cardcode_lis
+2023-10-26 13:12:53,605 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 387, in read_suppfile_extract_data
+    return partfulllist,cardcode_lis
+2023-10-26 13:12:53,621 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:12:53,621 - com.Talbros.supplementary.utilities - ERROR -  There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 387, in read_suppfile_extract_data
+    return partfulllist,cardcode_list,sdate,edate,new_path_name,file_supp_txt,file_name
+UnboundLocalError: local variable 'file_name' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 122, in main
+    partfulllist,cardcode_list,sdate,edate,new_path_name,file_supp_txt,file_name = utilities.read_suppfile_extract_data(path,logger,key[j],conn,customer,parser,env)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\utilities.py", line 395, in read_suppfile_extract_data
+    raise Exception(" There is problem in processing and generating Supplementary")
+Exception:  There is problem in processing and generating Supplementary
+2023-10-26 13:12:57,245 - com.Talbros.supplementary.utilities - INFO -  There is problem in processing and generating Supplementary
+2023-10-26 13:12:57,245 - com.Talbros.supplementary.utilities - INFO -  There is problem in processing and generating Supplementary
+2023-10-26 13:12:57,260 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:14:31,497 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:14:31,497 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:14:31,497 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-14-31.txt
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:14:31,575 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:14:31,607 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:14:31,607 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:14:31,638 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-26 13:14:31,653 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-26 13:14:34,168 - com.Talbros.supplementary.utilities - ERROR - name 'new_data' is not defined
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+NameError: name 'new_data' is not defined
+2023-10-26 13:14:37,714 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+Name
+2023-10-26 13:14:37,714 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+Name
+2023-10-26 13:14:37,808 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:14:37,871 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+NameError: name 'new_data' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 948, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:14:41,651 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+Name
+2023-10-26 13:14:41,651 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+Name
+2023-10-26 13:14:41,682 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:14:41,682 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 924, in generate_supplementary_data
+    for row in new_data:
+NameError: name 'new_data' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 948, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 517, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:14:45,666 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:14:45,666 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:14:45,681 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:16:13,958 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:16:13,958 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:16:13,958 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:16:14,614 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-16-14.txt
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:16:14,630 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:16:14,661 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:16:14,661 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:16:14,677 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-26 13:16:14,677 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-26 13:16:14,770 - com.Talbros.supplementary.utilities - ERROR - Value must be a list, tuple, range or generator, or a dict. Supplied value is <class 'str'>
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 681, in append
+    self._invalid_row(iterable)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 817, in _invalid_row
+    raise TypeError('Value must be a list, tuple, range or generator, or a dict. Supplied value is {0}'.format(
+TypeError: Value must be a list, tuple, range or generator, or a dict. Supplied value is <class 'str'>
+2023-10-26 13:16:18,379 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:
+2023-10-26 13:16:18,379 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:
+2023-10-26 13:16:18,410 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:16:18,410 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 681, in append
+    self._invalid_row(iterable)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 817, in _invalid_row
+    raise TypeError('Value must be a list, tuple, range or generator, or a dict. Supplied value is {0}'.format(
+TypeError: Value must be a list, tuple, range or generator, or a dict. Supplied value is <class 'str'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 948, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:16:21,863 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:
+2023-10-26 13:16:21,863 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:
+2023-10-26 13:16:21,894 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:16:21,894 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 925, in generate_supplementary_data
+    ws.append(row)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 681, in append
+    self._invalid_row(iterable)
+  File "C:\Users\abc\AppData\Local\Programs\Python\Python310\lib\site-packages\openpyxl\worksheet\worksheet.py", line 817, in _invalid_row
+    raise TypeError('Value must be a list, tuple, range or generator, or a dict. Supplied value is {0}'.format(
+TypeError: Value must be a list, tuple, range or generator, or a dict. Supplied value is <class 'str'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 948, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 517, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-10-26 13:16:25,658 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:16:25,658 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-10-26 13:16:25,674 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:19:10,250 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:19:10,250 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:19:10,250 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:19:10,328 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-19-10.txt
+2023-10-26 13:19:10,344 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:19:10,344 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:19:10,375 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:19:10,375 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:19:10,391 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-26 13:19:10,391 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-26 13:19:20,279 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-26 13:19:24,606 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-26 13:19:27,543 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-26 13:20:07,205 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-26 13:20:11,127 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:20:18,453 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-26 13:20:18,453 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-26 13:24:57,872 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-26 13:24:57,888 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-26 13:24:57,888 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-26 13:24:58,013 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-26 13:24:58,013 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:24:58,013 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 26-10-2023 13-24-58.txt
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-26 13:24:58,028 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-26 13:24:58,059 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-26 13:24:58,059 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-26 13:24:58,091 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-26 13:24:58,091 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-26 13:25:07,370 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-26 13:25:10,166 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-26 13:25:12,572 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-26 13:25:48,204 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-26 13:25:51,781 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-26 13:25:56,171 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-26 13:25:56,171 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-10-31 10:09:37,784 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-10-31 10:09:37,831 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-10-31 10:09:37,831 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-10-31 10:09:39,033 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-10-31 10:09:39,033 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-31 10:09:39,065 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-10-31 10:09:39,065 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-31 10:09:39,096 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-10-31 10:09:39,096 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-31 10:09:39,127 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-10-31 10:09:39,127 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-10-31 10:09:39,143 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-10-31 10:09:39,174 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-10-31 10:09:39,174 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-10-31 10:09:39,174 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-10-31 10:09:39,189 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-10-31 10:09:39,189 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 31-10-2023 10-09-39.txt
+2023-10-31 10:09:39,221 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-10-31 10:09:39,221 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-10-31 10:09:39,268 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-10-31 10:09:39,268 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-10-31 10:09:39,361 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-10-31 10:09:39,361 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-10-31 10:09:48,984 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-10-31 10:09:51,562 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-10-31 10:09:53,889 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-10-31 10:10:29,115 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-10-31 10:10:32,693 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-10-31 10:10:37,582 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-10-31 10:10:37,598 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-11-01 11:19:19,383 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-11-01 11:19:19,477 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-11-01 11:19:19,477 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-11-01 11:19:20,727 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-11-01 11:19:20,727 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:19:20,805 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-11-01 11:19:20,805 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:19:20,820 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-11-01 11:19:20,820 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:19:20,852 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-11-01 11:19:20,852 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:19:20,852 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-11-01 11:19:20,867 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-11-01 11:19:20,867 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:19:20,867 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-11-01 11:19:20,867 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:19:20,899 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-11-01 11:19:20,899 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:19:20,899 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-11-01 11:19:20,899 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:19:20,945 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-11-01 11:19:20,945 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-11-01 11:19:20,945 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:19:20,961 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-11-01 11:19:20,961 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 01-11-2023 11-19-20.txt
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-11-01 11:19:20,992 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-11-01 11:19:21,023 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-11-01 11:19:21,023 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-11-01 11:19:21,320 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-11-01 11:19:21,320 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-11-01 11:19:21,742 - com.Talbros.supplementary.utilities - ERROR - 'str' object has no attribute 'date'
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.date()
+AttributeError: 'str' object has no attribute 'date'
+2023-11-01 11:19:25,882 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.da
+2023-11-01 11:19:25,897 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.da
+2023-11-01 11:19:25,913 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-01 11:19:25,913 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.date()
+AttributeError: 'str' object has no attribute 'date'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 869, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-11-01 11:19:29,365 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.da
+2023-11-01 11:19:29,365 - com.Talbros.supplementary.utilities - INFO - Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.da
+2023-11-01 11:19:29,381 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-01 11:19:29,381 - com.Talbros.supplementary.utilities - ERROR - There is problem in processing and generating Supplementary
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 821, in generate_supplementary_data
+    supp_gr_date = gr_date.date()
+AttributeError: 'str' object has no attribute 'date'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 501, in process_suppdata_based_supptxns
+    generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 869, in generate_supplementary_data
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abc\Automation\supp_automation\main.py", line 123, in main
+    data_processing.process_suppdata_based_supptxns(logger,conn,cardcode_list,partfulllist,sdate,edate,env,parser,new_path_name,file_name,customer)
+  File "C:\Users\abc\Automation\supp_automation\com\Talbros\supplementary\data_processing.py", line 517, in process_suppdata_based_supptxns
+    raise Exception("There is problem in processing and generating Supplementary")
+Exception: There is problem in processing and generating Supplementary
+2023-11-01 11:19:33,037 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-11-01 11:19:33,037 - com.Talbros.supplementary.utilities - INFO - There is problem in processing and generating Supplementary
+2023-11-01 11:19:33,068 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-01 11:22:14,671 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-11-01 11:22:14,671 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-11-01 11:22:14,687 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 01-11-2023 11-22-14.txt
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-11-01 11:22:14,827 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-11-01 11:22:14,858 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-11-01 11:22:14,858 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-11-01 11:22:14,905 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-11-01 11:22:14,905 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-11-01 11:22:24,013 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-11-01 11:22:26,699 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-11-01 11:22:29,074 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-11-01 11:23:04,284 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-11-01 11:23:08,096 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-01 11:23:12,142 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-11-01 11:23:12,189 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-11-01 11:29:09,203 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-11-01 11:29:09,234 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-11-01 11:29:09,234 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 01-11-2023 11-29-09.txt
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-11-01 11:29:09,327 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-11-01 11:29:09,343 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-11-01 11:29:09,343 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-11-01 11:29:09,374 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-11-01 11:29:09,374 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-11-01 11:29:18,169 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-11-01 11:29:21,106 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-11-01 11:29:23,730 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-11-01 11:29:58,503 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-11-01 11:30:01,909 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-01 11:30:06,627 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-11-01 11:30:06,627 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
+2023-11-06 11:23:10,555 - com.Talbros.supplementary.utilities - INFO - 
+
+2023-11-06 11:23:10,570 - com.Talbros.supplementary.utilities - INFO - Environment is :: LOCAL
+2023-11-06 11:23:10,570 - com.Talbros.supplementary.utilities - INFO - Dictionary is :: {'Vecv': 'Grn,Price,Dtw,Supplementary', 'Mahindra': 'Grn,Price,Dtw,Supplementary', 'Dana': 'Grn,Price,Dtw,Supplementary'}
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - Customer is :: Vecv
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - GRN File for Vecv is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Vecv is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  DTW File for Vecv is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Vecv is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - Customer is :: Mahindra
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - GRN File for Mahindra is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Mahindra is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  DTW File for Mahindra is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - Supplementary File for Mahindra is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - Customer is :: Dana
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Grn
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - GRN File for Dana is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Price
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  Text File for Price in Dana is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Dtw
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO -  DTW File for Dana is not found
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File is :: Supplementary
+2023-11-06 11:23:11,039 - com.Talbros.supplementary.utilities - INFO - File Location is :: C:\\Users\\abc\\Documents\\Supplementary\Dana\Supplementary\Supp 06-11-2023 11-23-11.txt
+2023-11-06 11:23:11,055 - com.Talbros.supplementary.utilities - INFO - Input Data in Supplementary is  :: ['16D004', '2023-04-04', '2023-09-15', '2002097;10056603;10091010;10099310;ETR-1938']
+2023-11-06 11:23:11,055 - com.Talbros.supplementary.utilities - INFO - cardcode List for Supplementary is ['16D004']
+2023-11-06 11:23:11,180 - com.Talbros.supplementary.utilities - INFO - Audit Trail Inserted for module Supplementary
+2023-11-06 11:23:11,195 - com.Talbros.supplementary.utilities - INFO - Part List for Supplementary is [['2002097', '10056603', '10091010', '10099310', 'ETR-1938']]
+2023-11-06 11:23:11,383 - com.Talbros.supplementary.utilities - INFO -  work for cardcode : 16D004
+2023-11-06 11:23:11,383 - com.Talbros.supplementary.utilities - INFO - 2002097
+2023-11-06 11:23:50,874 - com.Talbros.supplementary.utilities - INFO - 10056603
+2023-11-06 11:24:21,023 - com.Talbros.supplementary.utilities - INFO - 10091010
+2023-11-06 11:24:47,735 - com.Talbros.supplementary.utilities - INFO - 10099310
+2023-11-06 11:25:42,020 - com.Talbros.supplementary.utilities - INFO - ETR-1938
+2023-11-06 11:25:54,423 - com.Talbros.supplementary.utilities - INFO - Audit Trail Updated!!
+2023-11-06 11:25:59,359 - com.Talbros.supplementary.utilities - INFO - Mail sent
+2023-11-06 11:25:59,500 - com.Talbros.supplementary.utilities - INFO - Supplementary File WORK DONE
