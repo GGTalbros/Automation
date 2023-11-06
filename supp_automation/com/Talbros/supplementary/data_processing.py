@@ -7,6 +7,9 @@ import csv
 from os.path import exists as file_exists
 from decimal import Decimal
 import traceback 
+import numpy as np
+import openpyxl
+from openpyxl.styles import Alignment
 
 
 def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,customer,key,basepath):
@@ -19,17 +22,28 @@ def update_grn_details(logger,parser,env,conn,new_path_renam,new_path_name,custo
             df = pd.read_csv(new_path_renam, sep='\t')
         elif file_type_value == 'xlsx':
             df = pd.read_excel(new_path_renam)
+        elif file_type_value == 'xls':
+            if customer == 'Dana' :
+                dfs = pd.read_html(new_path_renam)
+                df = dfs[0]
+                df = df[1:]
+            else :
+                pass
+    
         #renaming the column name 
-        df.rename(columns=eval(parser.get(env, rename_column)), inplace=True)                   
-        df.head() 
+        df.rename(columns=eval(parser.get(env, rename_column)), inplace=True)                    
         #converting dateformat
-        df['GR_dt'] = pd.to_datetime(df['GR_dt'],infer_datetime_format=True)                   
+        df['GR_dt'] = pd.to_datetime(df['GR_dt'],infer_datetime_format=True)   
+        df['GR_no'] = df['GR_no'].astype('int64')
+        df['DC_no'] = df['DC_no'].astype('int64')
         #storing date after conversion
         df.to_csv(new_path_renam)
         if 'Rej_qty' not in df.columns:
             df['Rej_qty'] = 0
         else :
-            df['Rej_qty'] = df['Rej_qty'].fillna('0')
+            df['Rej_qty'] = df['Rej_qty'].fillna('0')    
+        if 'WSN_ASN' not in df.columns:
+            df['WSN_ASN'] = None
         #inserting values in temp table
         cursor = conn.cursor()
     
@@ -136,6 +150,11 @@ def fetch_and_insert_prices(logger,conn,cardcode_list,partfulllist,sdate,edate,e
         use_supptxns_key = f'{customer}{".use_supptxns"}'
         use_supptxns = parser.get(env, use_supptxns_key)
         
+        if customer == 'Dana' :
+            dt_colm_name = 'U_suppgrdate'
+        else :
+            dt_colm_name = 'DocDate'
+            
         cursor = conn.cursor()
         for cardcode, part_list in zip(cardcode_list, partfulllist):
             logger.info(" work for cardcode : {a}".format(a=cardcode)) 
@@ -171,12 +190,14 @@ def fetch_and_insert_prices(logger,conn,cardcode_list,partfulllist,sdate,edate,e
                 else :
                     new_prc_db =  new_prc_cur[0][0] 
                     
+                    
+                
                 #Check if for a part there are more than 1 invoice price present for date range if yes then
                 #error please ask user to prepare supplementary or get 2 sets of Prices for that part from OEM.
                 cur = cursor.execute("""select distinct inv1.price from INV1 inv1 inner join 
                                     OINV on oinv.DocEntry = inv1.DocEntry where  OINV.U_SuppGR is not NULL and OINV.CardCode = ? and inv1.ItemCode != 'AXLE' 
-                                    and inv1.TargetType NOT IN ('14') and OINV.DocDate >= ? and OINV.DocDate < ? and oinv.CANCELED = 'N' 
-                                    and inv1.subcatnum = ?""",cardcode,sdate,edate,part_no)
+                                    and inv1.TargetType NOT IN ('14') and OINV.{} >= ? and OINV.{} < ? and oinv.CANCELED = 'N' 
+                                    and inv1.subcatnum = ?""".format(dt_colm_name,dt_colm_name),cardcode,sdate,edate,part_no)
                 
                 all_row = cur.fetchall()
                 price_part_list = [''.join(str(i)) for i in all_row]
@@ -192,9 +213,9 @@ def fetch_and_insert_prices(logger,conn,cardcode_list,partfulllist,sdate,edate,e
                     cur = cursor.execute("""with inv_cte(inv_nos,inv_dt,inv_prc) as(
                                             SELECT top 1 oinv.docnum,oinv.docdate,inv1.price from INV1 inv1 inner join 
                                             OINV on oinv.DocEntry = inv1.DocEntry where OINV.CardCode = ? and inv1.ItemCode != 'AXLE' 
-                                            and inv1.TargetType NOT IN ('14') and OINV.U_SuppGR is not NULL and OINV.DocDate >= ? and OINV.DocDate < ?  and oinv.CANCELED = 'N' and inv1.subcatnum = ? order by DocDate asc)
+                                            and inv1.TargetType NOT IN ('14') and OINV.U_SuppGR is not NULL and OINV.{} >= ? and OINV.{} < ?  and oinv.CANCELED = 'N' and inv1.subcatnum = ? order by DocDate asc)
                                             select COALESCE (new_prc,inv_prc)old_inv_prc from inv_cte LEFT OUTER JOIN supp_txns 
-                                            on inv_cte.inv_nos = supp_txns.org_inv_no and supp_txns.status = 'A' and supp_date >= (select max(supp_date) from supp_txns where supp_date < ? and status = 'A' and party_partno  = ?)""", cardcode,sdate,edate,part_no,sdate,part_no)              
+                                            on inv_cte.inv_nos = supp_txns.org_inv_no and supp_txns.status = 'A' and supp_date >= (select max(supp_date) from supp_txns where supp_date < ? and status = 'A' and party_partno  = ?)""".format(dt_colm_name,dt_colm_name), cardcode,sdate,edate,part_no,sdate,part_no)              
                     old_prc_cur = cur.fetchall()
                     old_price_list = [''.join(str(i)) for i in old_prc_cur]
                     
@@ -202,8 +223,8 @@ def fetch_and_insert_prices(logger,conn,cardcode_list,partfulllist,sdate,edate,e
                     cur = cursor.execute("""with inv_cte(inv_nos,inv_dt,inv_prc) as(
                                     SELECT top 1 oinv.docnum,oinv.docdate,inv1.price from INV1 inv1 inner join 
                                     OINV on oinv.DocEntry = inv1.DocEntry where OINV.CardCode = ? and inv1.ItemCode != 'AXLE' 
-                                    and inv1.TargetType NOT IN ('14') and OINV.U_SuppGR is not NULL and OINV.DocDate >= ? and OINV.DocDate < ?  and oinv.CANCELED = 'N' and inv1.subcatnum = ? order by DocDate asc)
-                                    select (inv_prc)old_inv_prc from inv_cte """, cardcode,sdate,edate,part_no)                      
+                                    and inv1.TargetType NOT IN ('14') and OINV.U_SuppGR is not NULL and OINV.{} >= ? and OINV.{} < ?  and oinv.CANCELED = 'N' and inv1.subcatnum = ? order by DocDate asc)
+                                    select (inv_prc)old_inv_prc from inv_cte """ .format(dt_colm_name,dt_colm_name), cardcode,sdate,edate,part_no)                      
                     old_prc_cur = cur.fetchall()
                     old_price_list = [''.join(str(i)) for i in old_prc_cur]
                     
@@ -256,6 +277,7 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
         
         Dtw_Header = f'{customer}{".Dtw.Header"}'
         
+        
         file = open(file_name, 'w', newline='') #opening csv file and getting  header name from property file
         writer = csv.writer(file)
         fieldnames = list(parser.get(env,Dtw_Header).split("|"))
@@ -263,6 +285,10 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
         file.close()
         
         cursor = conn.cursor()
+        if customer == 'Dana' :
+            dt_colm_name = 'U_suppgrdate'
+        else :
+            dt_colm_name = 'DocDate'
         
         plc = ",".join(["?"] * len(cardcode_list))
         args = cardcode_list
@@ -318,7 +344,7 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                         raise_and_log_error(conn,logger,env,parser,error_msg,'Dtw')
                         chk_err    = 1
                         break
-                
+                    
                     elif len(po_no_data_list) > 1:
                         error_msg = "More than 1 PO NO present in DB for DTW for  Card code :: {a}. Part No  :: {b}. Start Date  :: {c}. End Date {d}".format(a=cardcode,b=part_no,c=sdate,d=edate)
                         raise_and_log_error(conn,logger,env,parser,error_msg,'Dtw')
@@ -327,7 +353,8 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                         
                     else :
                         dtw_po_no = po_no_data[0][0]
-                        
+                    
+
                     #getting invoices as per  part no.    
                     if dtw_format == 'aggregated' :
                         cur = cursor.execute('''WITH details(disdate,qty,tel_partno,party_partno,partycode,invoice,whs,taxcode,docdate) AS (
@@ -338,7 +365,7 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                                                         and inv1.TargetType NOT IN ('14')
                                                         and inv1.ItemCode != 'AXLE'
                                                         and OINV.U_SuppGR is not NULL
-                                                        and OINV.DocDate >= ? and OINV.DocDate < ?
+                                                        and OINV.{} >= ? and OINV.{} < ?
                                                                     )
                                                         select t0.partycode as "CardCode", 
                                                         STRING_AGG(convert(varchar(max),invoice), ';') WITHIN GROUP (ORDER BY docdate) AS "U_OriginalInvoiceNo",
@@ -346,7 +373,7 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                                                         t0.party_partno as "SupplierCatNum",t0.tel_partno as "ItemDescription",
                                                         sum(t0.qty) as "Quantity",t0.taxcode as "TaxCode"
                                                         from details t0 where party_partno = ?
-                                                        group by t0.partycode, t0.party_partno,t0.tel_partno,t0.taxcode''', cardcode,sdate,edate,part_no)
+                                                        group by t0.partycode, t0.party_partno,t0.tel_partno,t0.taxcode'''.format(dt_colm_name,dt_colm_name), cardcode,sdate,edate,part_no)
                     
                     elif dtw_format == 'separated' :
                         cur = cursor.execute('''WITH details(disdate,qty,tel_partno,party_partno,partycode,invoice,whs,taxcode,docdate) AS (
@@ -357,17 +384,16 @@ def generate_dtw_details(logger,conn,cardcode_list,partfulllist,sdate,edate,env,
                                                     and inv1.TargetType NOT IN ('14')
                                                     and inv1.ItemCode != 'AXLE'
                                                     and OINV.U_SuppGR is not NULL
-                                                    and OINV.DocDate >= ? and OINV.DocDate < ?
+                                                    and OINV.{} >= ? and OINV.{} < ?
                                                                 )
                                                     select t0.partycode as "CardCode", 
                                                     t0.invoice AS "U_OriginalInvoiceNo",
                                                     t0.disdate AS "U_OriginalInvoiceDate-yyyy-mm-dd",
                                                     t0.party_partno as "SupplierCatNum",t0.tel_partno as "ItemDescription",
                                                     t0.qty as "Quantity",t0.taxcode as "TaxCode"
-                                                    from details t0 where party_partno = ? ''', cardcode,sdate,edate,part_no)
+                                                    from details t0 where party_partno = ? '''.format(dt_colm_name,dt_colm_name), cardcode,sdate,edate,part_no)
                     dtw_data = cur.fetchall()
                     dtw_data_list = [''.join(str(i)) for i in dtw_data]
-                    
                     if dtw_format == 'aggregated' :
                         if len(dtw_data_list) >1:
                             error_msg = "More than 1 record present in DB for DTW Details for  Card code :: {a}. Part No  :: {b}. Start Date  :: {c}. End Date {d}".format(a=cardcode,b=part_no,c=sdate,d=edate)
@@ -499,13 +525,38 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
         
         format_key = f'{customer}{".Dtw_format"}'
         dtw_format = parser.get(env, format_key)
-        
-        Supp_Header = f'{customer}{".Supp.Header"}'
-        file = open(file_name, 'w', newline='') 
-        writer = csv.writer(file)
-        fieldnames = list(parser.get(env,Supp_Header).split("|"))
-        writer.writerow(fieldnames)  
-        file.close()
+
+        if customer == 'Dana' :
+            dt_colm_name = 'U_suppgrdate'
+            
+            wb = openpyxl.Workbook()
+            ws = wb.active
+            data = [
+                ['','Mass upload Format for processing rate difference supplementary Debit Note '],
+                ['','Sr.no.6 . Amendments to details of inward supplies furnished in returns for earlier tax period to Table 3,4 and 5 [ including debit not4es/ credit notes issued & their subsequent amendment. '],
+                ['Vendor Code','Vendor Code','Details of Original Supply invoice no.','','','Revised details of Supplementary Invoice','','','','PO No','PO Item No.','SIPL Part No.','GRN No.','GRN Date','GRN Qty','New Rate','Old Rate','Net Rate','NetBasic','GST Amount','','','','Total Amount','Place of supply'],
+                ['Place of supply','Vendor','GSTIN ','No','Date','GSTIN ','No','Date','value','','','','','','','','','','','Integrated Tax','Central Tax','State/UT Tax','Cess'],
+                ['','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24']
+            ]
+            for row in data:
+                ws.append(row)
+                
+            merge_ranges = ['B1:Y1', 'B2:Y2','C3:E3','F3:I3', 'J3:J4','K3:K4','L3:L4','M3:M4','N3:N4','O3:O4','P3:P4','Q3:Q4','R3:R4','S3:S4','T3:W3','X3:X4','Y3:Y4']
+            center_alignment = Alignment(horizontal='center', vertical='center')
+            for merge_range in merge_ranges:
+                ws.merge_cells(merge_range)
+                for row in ws[merge_range]:
+                    for cell in row:
+                        cell.alignment = center_alignment          
+            wb.save(file_name)
+        else :
+            dt_colm_name = 'DocDate'
+            Supp_Header = f'{customer}{".Supp.Header"}'
+            file = open(file_name, 'w', newline='') 
+            writer = csv.writer(file)
+            fieldnames = list(parser.get(env,Supp_Header).split("|"))
+            writer.writerow(fieldnames)  
+            file.close()
         
         cursor = conn.cursor()
        
@@ -517,26 +568,27 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                 part_no = part
                 logger.info(part_no)
                 
-                prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
-                                            where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
-                all_row = prc_dta.fetchone()
-                all_row_list = [''.join(str(i)) for i in all_row]
-                
-                new_prc = all_row[0]
-                old_prc = all_row[1]
-                
                 if dtw_format == 'aggregated' :
-                
+                    prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
+                    where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
+                    all_row = prc_dta.fetchone()
+                    all_row_list = [''.join(str(i)) for i in all_row]
+                    
+                    new_prc = all_row[0]
+                    old_prc = all_row[1]
+                    
                     if new_prc > old_prc :
-                        cur1 = cursor.execute('''WITH OINV_data(ASN_WSN, GR_No, GR_Date,Challan_Qty, Short_Qty, Rej_Qty, GR_Qty, o_inv_no, o_Part_no, HSN_no,Vat_prcnt) AS (
+                        cur1 = cursor.execute('''WITH OINV_data(ASN_WSN, GR_No, GR_Date,Challan_Qty, Short_Qty, Rej_Qty, GR_Qty, o_inv_no, o_Part_no, HSN_no,Vat_prcnt , supply_place,vender_code,supply_place_code) AS (
                             SELECT oinv.U_SuppWSNASN, oinv.U_SuppGR, oinv.U_SuppGRDate, inv1.U_ChallanQty,'0', oinv.U_SuppRejQty ,
-                        OINV.U_SuppGRQty, oinv.DocNum,inv1.subcatnum, ochp.Dscription, inv1.VatPrcnt from OINV
+                        OINV.U_SuppGRQty, oinv.DocNum,inv1.subcatnum, ochp.Dscription, inv1.VatPrcnt , inv12.citys,oinv.U_PlantCode,ocst.name from OINV
                             inner join INV1 inv1 on oinv.DocEntry = inv1.DocEntry join ochp on inv1.HsnEntry = ochp.AbsEntry
+                            left join inv12 on inv12.docentry = oinv.docentry
+                            LEFT  JOIN OCST on ocst.code = inv12.states
                             where OINV.CardCode in (?)
                             and inv1.TargetType NOT IN ('14')
                             and inv1.ItemCode != 'AXLE'
                             and oinv.CANCELED = 'N'
-                            and OINV.DocDate  >= ? and OINV.DocDate < ?
+                            and OINV.{}  >= ? and OINV.{} < ?
                             and OINV.U_SuppGR is not NULL),
                             
                             tmp(subcatnum, U_OtherRefNo, DocNum,DocDate,NInv_no,NInv_date,U_OrgInvNo,U_OrgInvDate,U_SuppOldPrice,U_SuppNewPrice,Price_diff) AS
@@ -561,8 +613,8 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                     U_SuppOldPrice, U_SuppNewPrice, abs(U_SuppOldPrice - U_SuppNewPrice) FROM tmp WHERE U_OrgInvNo > '' )
                     
                             select DocNum, DocDate, NInv_no, NInv_date, HSN_no, subcatnum, ASN_WSN, GR_No, GR_Date, U_OtherRefNo, Challan_Qty, Short_Qty, Rej_Qty, 
-                            GR_Qty,U_SuppOldPrice,U_SuppNewPrice,Price_diff,Vat_prcnt from OINV_data join tmp on OINV_data.o_inv_no = tmp.NInv_no 
-                            where subcatnum = ? OPTION (MAXRECURSION 0) ''', cardcode,sdate,edate,sdate,part_no,part_no)
+                            GR_Qty,U_SuppOldPrice,U_SuppNewPrice,Price_diff,Vat_prcnt ,vender_code,supply_place_code,supply_place from OINV_data join tmp on OINV_data.o_inv_no = tmp.NInv_no 
+                            where subcatnum = ? OPTION (MAXRECURSION 0) '''.format(dt_colm_name,dt_colm_name), cardcode,sdate,edate,sdate,part_no,part_no)
                             
                     else :
                         cur1 = cursor.execute('''with tmp(subcatnum, U_OtherRefNo, DocNum,DocDate,NInv_no,NInv_date,U_OrgInvNo,U_OrgInvDate,U_SuppOldPrice,U_SuppNewPrice,Price_diff) AS
@@ -587,20 +639,22 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                     U_SuppOldPrice, U_SuppNewPrice, abs(U_SuppOldPrice - U_SuppNewPrice) FROM tmp WHERE U_OrgInvNo > '' )
                                 select tmp.DocNum, tmp.DocDate, tmp.NInv_no, tmp.NInv_date, (ochp.Dscription) as HSN_no, tmp.subcatnum, oinv.U_SuppWSNASN,  oinv.U_SuppGR, oinv.U_SuppGRDate, tmp.U_OtherRefNo, 
                                 inv1.U_ChallanQty,'0' as Short_Qty,  oinv.U_SuppRejQty, 
-                                OINV.U_SuppGRQty,tmp.U_SuppOldPrice,tmp.U_SuppNewPrice,Price_diff,inv1.VatPrcnt from tmp join oinv
+                                OINV.U_SuppGRQty,tmp.U_SuppOldPrice,tmp.U_SuppNewPrice,Price_diff,inv1.VatPrcnt ,oinv.U_PlantCode, ocst.name,inv12.citys from tmp join oinv
                                 on oinv.docnum = tmp.NInv_no 
                                                             
                                 inner join  INV1 inv1  on oinv.DocEntry = inv1.DocEntry join ochp on inv1.HsnEntry = ochp.AbsEntry
+                                left join inv12 on inv12.docentry = oinv.docentry
+                                LEFT  JOIN OCST on ocst.code = inv12.states
                                 where oinv.CardCode = ?
                                 and inv1.TargetType NOT IN ('14')
                                 and inv1.ItemCode != 'AXLE'
                                 and oinv.CANCELED = 'N'
-                                and OINV.DocDate  >= ? and OINV.DocDate < ?
+                                and OINV.{}  >= ? and OINV.{} < ?
                                 and OINV.U_SuppGR is not NULL 
-                                and tmp.subcatnum = ? OPTION (MAXRECURSION 0)''',sdate,part_no,cardcode,sdate,edate,part_no)
-                                    
-                elif dtw_format == 'separated' : 
+                                and tmp.subcatnum = ? OPTION (MAXRECURSION 0)'''.format(dt_colm_name,dt_colm_name),sdate,part_no,cardcode,sdate,edate,part_no)
                 
+                  
+                elif dtw_format == 'separated' : 
                     if new_prc > old_prc :
                         cur1 = cursor.execute('''WITH OINV_data(  docnum,DocDate, newprice,  oldprice,inv_no,subcatnum,taxcode) AS (
                                             SELECT oinv.DocNum,cast(oinv.DocDate as date),
@@ -619,15 +673,14 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                             and inv1.TargetType NOT IN ('14')
                                             and inv1.ItemCode != 'AXLE'
                                             and oinv.CANCELED = 'N'
-                                            and OINV.DocDate  >= ? and OINV.DocDate < ?
+                                            and OINV.{}  >= ? and OINV.{} < ?
                                             and OINV.U_SuppGR is not NULL)
                                 
                                 
                                             select GrNo,newprice,oldprice ,DocNum, DocDate,CAST(SUBSTRING(taxcode, PATINDEX('%[0-9]%', taxcode), LEN(taxcode)) AS INT) AS numeric_taxcode,abs(oldprice - newprice)as prc_diff  ,Gr_qty
                                             from OINV_data join gr_data on OINV_data.inv_no = gr_data.o_inv_no 
-                                            where subcatnum = ? ''',cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
-                                            
-                    else:
+                                            where subcatnum = ? '''.format(dt_colm_name,dt_colm_name),cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
+                    else :
                         cur1 = cursor.execute('''WITH ORIN_data(  docnum,DocDate, newprice,  oldprice,inv_no,subcatnum,taxcode) AS (
                                             SELECT orin.DocNum,cast(orin.DocDate as date),
                                             orin.U_SuppNewPrice,orin.U_SuppOldPrice,orin.U_OriginalInvoiceNo ,rin1.subcatnum ,rin1.taxcode from ORIN
@@ -645,14 +698,13 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                             and inv1.TargetType NOT IN ('14')
                                             and inv1.ItemCode != 'AXLE'
                                             and oinv.CANCELED = 'N'
-                                            and OINV.DocDate  >= ? and OINV.DocDate < ?
+                                            and OINV.{}  >= ? and OINV.{} < ?
                                             and OINV.U_SuppGR is not NULL)
                                 
                                 
                                             select GrNo,newprice,oldprice ,DocNum, DocDate,CAST(SUBSTRING(taxcode, PATINDEX('%[0-9]%', taxcode), LEN(taxcode)) AS INT) AS numeric_taxcode,abs(oldprice - newprice)as prc_diff  ,Gr_qty
                                             from OINV_data join gr_data on OINV_data.inv_no = gr_data.o_inv_no 
-                                            where subcatnum = ? ''',cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
-                        
+                                            where subcatnum = ? '''.format(dt_colm_name,dt_colm_name),cardcode,sdate,part_no,cardcode,sdate,edate,part_no)
             
                 supp_data = cur1.fetchall()
                 supp_data_list = [''.join(str(i)) for i in supp_data]
@@ -664,7 +716,7 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                     break
     
                 else :
-                    if use_supptxns == 'Y' :
+                    if customer == 'Vecv' :
                         row_no = 0
                         for i in range(len(supp_data_list)):
                             
@@ -732,7 +784,7 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                                 writer.writerow(map(lambda x: x, one_row))
                                 f.close()     
                                 
-                    elif use_supptxns == 'N' :
+                    elif customer == 'Mahindra' :
                         for row in supp_data:
                             supp_vender_code = 'DT006'
                             supp_gr_no = row[0]
@@ -750,8 +802,73 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
                             with open(file_name, 'a+',newline = '') as f:    
                                 writer = csv.writer(f) 
                                 writer.writerow(map(lambda x: x, one_row))
-                                f.close()  
-                    
+                                f.close() 
+
+                    elif customer == 'Dana' :
+                        for row in supp_data:
+                            
+                            supp_GST = '06AABCT0247L2ZD'
+                            supp_invoice_no = row[2]
+                            supp_invoice_date = row[3]
+                            supp_debit_no = row[0]
+                            supp_debit_date = row[1]
+                            Supp_PO_NO = row[9]
+                            PO_item_no = '10'
+                            supp_part_no = row[5]
+                            supp_gr_no = row[7]
+                            
+                            gr_date = row[8]
+                            supp_gr_date = gr_date.date()
+                            
+                            supp_gr_qty = row[13]
+                            supp_old_price = row[14]
+                            supp_new_price = row[15]
+                            supp_prc_diff = row[16]
+                            
+                            supp_vender  = row[18]
+                            place_code= row[19].split("-")
+                            supp_place_code= place_code[0]
+                            supp_supply_place = row[20]
+                            
+                            supp_basic_amount= Decimal(supp_prc_diff) * Decimal(supp_gr_qty)
+                            if place_code[1] == 'Haryana':
+                                IGST= float('0')
+                                CGST= float(supp_basic_amount)*0.14
+                                SGST= float(supp_basic_amount)*0.14
+                                cess=float('0')
+                            else :
+                                IGST =float(supp_basic_amount)*0.28
+                                CGST=float('0')
+                                SGST = float('0')
+                                cess=float('0')
+                            Total_amt=IGST+CGST+SGST+cess
+                            value=Total_amt
+                            
+                            cursor.execute('''
+                                    INSERT INTO supp_txns (cardcode, party_partno, supp_date, dr_no,dr_date,org_inv_no,org_inv_date,po_no,old_prc,new_prc,status,datecreated,dateupdated)
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,getdate(),getdate())
+                                    ''',
+                                    cardcode,
+                                    supp_part_no,
+                                    sdate,
+                                    supp_debit_no,
+                                    supp_debit_date,
+                                    supp_invoice_no,
+                                    supp_invoice_date,
+                                    Supp_PO_NO,
+                                    supp_old_price,
+                                    supp_new_price,
+                                    'A'
+                                    
+                                )
+                            
+                            one_row =[[supp_supply_place,supp_vender,supp_GST,supp_invoice_no,supp_invoice_date,supp_GST,supp_debit_no,supp_debit_date,value,Supp_PO_NO,PO_item_no,supp_part_no,supp_gr_no,supp_gr_date,supp_gr_qty,supp_old_price,supp_new_price,supp_prc_diff,supp_basic_amount,IGST,CGST,SGST,cess,Total_amt,supp_place_code]]
+                            
+                            wb = openpyxl.load_workbook(file_name)
+                            ws = wb.active
+                            for row in one_row:
+                                ws.append(row)
+                            wb.save(file_name)
             
         if(chk_err   == 0):
             conn.commit()
