@@ -567,16 +567,15 @@ def generate_supplementary_data(logger,conn,cardcode_list,partfulllist,sdate,eda
             for part in part_list: 
                 part_no = part
                 logger.info(part_no)
+                prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
+                where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
+                all_row = prc_dta.fetchone()
+                all_row_list = [''.join(str(i)) for i in all_row]
+                
+                new_prc = all_row[0]
+                old_prc = all_row[1]
                 
                 if dtw_format == 'aggregated' :
-                    prc_dta = cursor.execute('''select top 1 new_po_prc,old_inv_prc  from supp_prc_txns 
-                    where supp_date = ? and cardcode= ?  and status = 'A' ''' ,sdate,cardcode)
-                    all_row = prc_dta.fetchone()
-                    all_row_list = [''.join(str(i)) for i in all_row]
-                    
-                    new_prc = all_row[0]
-                    old_prc = all_row[1]
-                    
                     if new_prc > old_prc :
                         cur1 = cursor.execute('''WITH OINV_data(ASN_WSN, GR_No, GR_Date,Challan_Qty, Short_Qty, Rej_Qty, GR_Qty, o_inv_no, o_Part_no, HSN_no,Vat_prcnt , supply_place,vender_code,supply_place_code) AS (
                             SELECT oinv.U_SuppWSNASN, oinv.U_SuppGR, oinv.U_SuppGRDate, inv1.U_ChallanQty,'0', oinv.U_SuppRejQty ,
