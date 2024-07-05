@@ -17,7 +17,7 @@ from dateutil import parser
 conn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                 "Server=192.168.0.60;"
                 "PORT=1433;"
-                "Database=Talbros_Live;"
+                "Database=Talbros;"
                 "UID=sa;"
                 "PWD=tel@2017;")
 cursor = conn.cursor()
@@ -38,7 +38,10 @@ cur = cursor.execute('''select code from tal_dly_mail''')
 code_fetch = cur.fetchall()
 
 for codes in code_fetch :
-    
+
+    if (codes[0] == 62 and datetime.now().day == 1) or (codes[0] == 60 and datetime.now().day != 1):
+        continue
+
     logger.info("Sending Mail for code : {}".format(codes))
     cur = cursor.execute('''select start_time, end_time, day , (SELECT cast(CONVERT (TIME, CURRENT_TIMESTAMP) as time)) as 'Current',
     CASE
@@ -51,11 +54,16 @@ for codes in code_fetch :
     
     day_fetch = time_data[0][2]
     day = list(day_fetch.split(","))
+
+    if day[0].lower() != 'Everyday':
+        day = [int(i) for i in day]
+
+    today = datetime.now()
     
     cur_time = time_data[0][3]
     result = time_data[0][4]
     
-    if result == 'Y':
+    if result == 'Y' and today.day in day:
         logger.info("Time Matched!")
         cur = cursor.execute('''select Qstring from OUQR,oalt where OUQR.IntrnalKey =oalt.QueryId and oalt.Active = 'Y' and code = ? ''' , codes)   
         Qsring_fetch = cur.fetchall()
@@ -131,7 +139,7 @@ for codes in code_fetch :
             
             file_name = name+ ".csv"
             p.add_header('Content-Disposition', 'attachment; filename= "%s"' %file_name)
-            
+
             msg.attach(p)
             
             server = smtplib.SMTP('smtp.gmail.com', 587)
